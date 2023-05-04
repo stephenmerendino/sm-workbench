@@ -10,4 +10,5 @@ add_executable(sm-workbench WIN32 src/App.cpp
 
 target_include_directories(sm-workbench PUBLIC src
                                         PUBLIC lib/sm-engine/src)
-target_link_libraries(sm-workbench lib/sm-engine/Debug/sm-engine)
+
+target_link_libraries(sm-workbench PUBLIC sm-engine)
