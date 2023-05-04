@@ -1,5 +1,8 @@
 cmake_minimum_required(VERSION 3.26)
 
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/run)
+set(ASSETS_DIR ${CMAKE_SOURCE_DIR}/assets)
+
 project(sm-workbench)
 
 add_subdirectory(lib/sm-engine)
@@ -12,3 +15,8 @@ target_include_directories(sm-workbench PUBLIC src
                                         PUBLIC lib/sm-engine/src)
 
 target_link_libraries(sm-workbench PUBLIC sm-engine)
+
+# copy assets to final exe directory
+add_custom_command(TARGET sm-workbench POST_BUILD
+                    COMMAND ${CMAKE_COMMAND} -E copy_directory
+                    ${ASSETS_DIR} $<TARGET_FILE_DIR:sm-workbench>)
