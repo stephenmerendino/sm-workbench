@@ -21,8 +21,13 @@ target_include_directories(sm-workbench PUBLIC src
 
 target_link_libraries(sm-workbench PUBLIC sm-engine)
 
+# compile shaders
+add_custom_command(TARGET sm-workbench POST_BUILD
+                   COMMAND cmd /c ${CMAKE_SOURCE_DIR}/tools/compile-shaders.bat
+                   )
 
 # copy assets to final exe directory
 add_custom_command(TARGET sm-workbench POST_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy_directory
-                   ${ASSETS_DIR} $<TARGET_FILE_DIR:sm-workbench>)
+                   ${ASSETS_DIR} $<TARGET_FILE_DIR:sm-workbench>
+                   )
