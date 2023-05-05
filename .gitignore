@@ -6,6 +6,7 @@
 # sm-engine
 [Bb]uild/
 [Rr]un/
+compile_commands.json
 
 # User-specific files
 *.rsuser
