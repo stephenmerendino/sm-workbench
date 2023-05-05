@@ -5,22 +5,22 @@ set(ASSETS_DIR ${CMAKE_SOURCE_DIR}/assets)
 
 project(sm-workbench)
 
+
 add_subdirectory(lib/sm-engine)
 
 add_executable(sm-workbench WIN32 src/App.cpp
                                   src/MainWin.cpp
                                   )
 
+set_target_properties(sm-workbench PROPERTIES 
+                      VS_DEBUGGER_WORKING_DIRECTORY "$<TARGET_FILE_DIR:sm-workbench>"
+                      )
+
 target_include_directories(sm-workbench PUBLIC src
                                         PUBLIC lib/sm-engine/src)
 
 target_link_libraries(sm-workbench PUBLIC sm-engine)
 
-set_target_properties(sm-workbench PROPERTIES 
-                                   VS_DEBUGGER_WORKING_DIRECTORY "$<TARGET_FILE_DIR:sm-workbench>"
-                                   VS_STARTUP_PROJECT sm-workbench
-                                   )
-                                    
 
 # copy assets to final exe directory
 add_custom_command(TARGET sm-workbench POST_BUILD
