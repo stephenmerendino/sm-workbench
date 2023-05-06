@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Engine/Core/Clock.h"
-#include "Engine/Core/Types.h"
-#include "Engine/Render/Camera.h"
+#include "engine/core/Clock.h"
+#include "engine/core/Types.h"
+#include "engine/render/Camera.h"
 
 #include <vector>
 #include <set>

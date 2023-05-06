@@ -1,14 +1,14 @@
 #include "App.h"
 
-#include "Engine/Core/Config.h"
-#include "Engine/Core/Common.h"
-#include "Engine/Core/FileUtils.h"
-#include "Engine/Input/InputSystem.h"
-#include "Engine/Math/MathUtils.h"
-#include "Engine/Render/Vulkan/VulkanInstance.h"
-#include "Engine/Render/Vulkan/VulkanRenderer.h"
-#include "Engine/Render/Window.h"
-#include "Engine/Thread/Thread.h"
+#include "engine/core/Config.h"
+#include "engine/core/Common.h"
+#include "engine/core/FileUtils.h"
+#include "engine/input/InputSystem.h"
+#include "engine/math/MathUtils.h"
+#include "engine/render/vulkan/VulkanInstance.h"
+#include "engine/render/vulkan/VulkanRenderer.h"
+#include "engine/render/Window.h"
+#include "engine/thread/Thread.h"
 
 #include <sstream>
 #include <unordered_map>
@@ -65,7 +65,7 @@ void App::Run()
 
 void App::Setup()
 {
-	m_pWindow = new Window(WINDOW_NAME, WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_ALLOW_RESIZE);
+	m_pWindow = new Window("SM Workbench", WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_ALLOW_RESIZE);
 	m_pWindow->Setup();
 	m_pWindow->AddMessageCallback(AppWindowMessageHandler, this);
 
@@ -122,7 +122,7 @@ void App::ReportFps(F32 deltaSeconds)
 		m_currentFramesPerSecond = static_cast<I32>(static_cast<F32>(m_frameCount) / m_frameTimeAccrual);
 
 		std::ostringstream stringStream;
-		stringStream << WINDOW_NAME << " - Current FPS: " << m_currentFramesPerSecond << "\n";
+		stringStream << "SM Workbench" << " - Current FPS: " << m_currentFramesPerSecond << "\n";
 		std::string newWindowTitle = stringStream.str();
 		m_pWindow->SetTitle(newWindowTitle);
 
