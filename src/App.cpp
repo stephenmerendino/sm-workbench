@@ -7,6 +7,7 @@
 #include "engine/math/MathUtils.h"
 #include "engine/render/vulkan/VulkanInstance.h"
 #include "engine/render/vulkan/VulkanRenderer.h"
+#include "engine/render/vulkan/VulkanRenderer2.h"
 #include "engine/render/Window.h"
 #include "engine/thread/Thread.h"
 
@@ -65,29 +66,23 @@ void App::Run()
 
 void App::Setup()
 {
+    // Setup window
 	m_pWindow = new Window("SM Workbench", WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_ALLOW_RESIZE);
 	m_pWindow->Setup();
 	m_pWindow->AddMessageCallback(AppWindowMessageHandler, this);
 
-	SetupEngine();
-	SetupCamera();
-
-	m_bIsRunning = true;
-}
-
-void App::SetupEngine()
-{
+    // Setup engine
 	Clock::Init();
 	g_inputSystem.Init(m_pWindow);
 	m_pRenderer = new VulkanRenderer(m_pWindow);
 	m_pRenderer->Setup();
-}
 
-void App::SetupCamera()
-{
+    // Setup camera
 	m_sceneCamera.SetPosition(Vec3(5.0f, 5.0f, 5.0f));
 	m_sceneCamera.LookAt(Vec3::ZERO, Vec3::UP);
 	m_pRenderer->SetCamera(&m_sceneCamera);
+
+	m_bIsRunning = true;
 }
 
 void App::MainLoop()

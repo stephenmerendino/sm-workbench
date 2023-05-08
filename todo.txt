@@ -1,0 +1,49 @@
+Current todo
+[] Debug shapes
+    [] Cube
+    [] Sphere
+    [] Cone
+    [] Pyramid
+    [] Plane/Quad
+    [] Donut
+
+Next
+[] Debug Draw System
+[] Dot3 Lighting
+    [] Directional
+    [] Point
+    [] Spot
+[] Shadow casting lights
+[] Hot reload shaders
+[] MSAA toggleable / configurable
+[] Simple UI to start interacting with scene 
+[] Move widget
+[] Rotate widget
+[] Scale widget
+[] Render doc and Pix are both supported with labels
+[] Viewport and Scissor are dynamic state
+[] Cubemap in scene
+
+Future big features
+[] Render Graph
+[] Noise Generator
+[] Volumetrics & clouds
+[] Pathtracing
+[] PBR
+[] Deferred Renderer
+[] Forward+ Renderer
+[] GPU Particles
+[] SSR
+[] AO
+[] TAA
+[] Water
+[] Terrain
+[] GI
+[] OIT
+[] Reflections
+[] Parallax Mapping
+[] Decals
+[] Area lights
+[] DX12 impl
+[] Linux support
+[] Mac support

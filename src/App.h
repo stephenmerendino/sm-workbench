@@ -22,8 +22,6 @@ public:
 
 private:
 	void Setup();
-	void SetupEngine();
-	void SetupCamera();
 	void Teardown();
 
 	void MainLoop();
