@@ -1,158 +1,73 @@
-#include "App.h"
+#include "app.h"
+#include "engine/core/config.h"
+#include "engine/core/macros.h"
+#include "engine/core/time.h"
+#include "engine/render/window.h"
+#include "engine/platform/windows_include.h"
 
-#include "engine/core/Config.h"
-#include "engine/core/Common.h"
-#include "engine/core/FileUtils.h"
-#include "engine/input/InputSystem.h"
-#include "engine/math/MathUtils.h"
-#include "engine/render/vulkan/VulkanInstance.h"
-#include "engine/render/vulkan/VulkanRenderer.h"
-#include "engine/render/vulkan/VulkanRenderer2.h"
-#include "engine/render/Window.h"
-#include "engine/thread/Thread.h"
+static bool s_is_running = false;
 
-#include <sstream>
-#include <unordered_map>
-#include <algorithm>
-#include <array>
-
-static void AppWindowMessageHandler(UINT msg, WPARAM wParam, LPARAM lParam, void* userArgs)
+static void window_message_handler(UINT msg, WPARAM w_param, LPARAM l_param, void* user_args)
 {
-	Unused(lParam);
-	App* pApp = (App*)userArgs;
+    UNUSED(l_param);
+    UNUSED(user_args);
 
-	switch (msg)
-	{
-		case WM_CLOSE:
-		{
-			pApp->SetIsRunning(false);
-			break;
-		}
+    switch (msg)
+    {
+        case WM_CLOSE:
+            {
+                s_is_running = false;
+                break;
+            }
 
-		case WM_KEYDOWN:
-		{
-			if (wParam == VK_ESCAPE)
-			{
-				pApp->SetIsRunning(false);
-			}
-			break;
-		}
+        case WM_KEYDOWN:
+            {
+                if (w_param == VK_ESCAPE)
+                {
+                    s_is_running = false;
+                }
+                break;
+            }
 
-		default: break;
-	}
+        default: break;
+    }
 }
 
-App::App()
-	:m_bIsRunning(false)
-	,m_pWindow(nullptr)
-	,m_pRenderer(nullptr)
-	,m_currentFrame(0)
-	,m_frameCount(0)
-	,m_frameTimeAccrual(0.0f)
-	,m_currentFramesPerSecond(0)
+void run_app()
 {
-}
+    window_t* p_app_window = create_window("SM Workbench", WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_ALLOW_RESIZE);
+    add_window_callback(p_app_window, window_message_handler);
 
-App::~App()
-{
-}
+    init_time();
+    init_input();
+    //init_renderer();
 
-void App::Run()
-{
-	Setup();
-	MainLoop();
-	Teardown();
-}
+    //camera_t scene_camera = create_camera(...);
+    //set_render_camera(scene_camera);
 
-void App::Setup()
-{
-    // Setup window
-	m_pWindow = new Window("SM Workbench", WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_ALLOW_RESIZE);
-	m_pWindow->Setup();
-	m_pWindow->AddMessageCallback(AppWindowMessageHandler, this);
+    //stopwatch_t frame_stopwatch = create_stopwatch();
+    //s_is_running = true;
+    //while(s_is_running)
+    //{
+    //    // begin frame
+    //    f32 ds = get_elapsed_time_seconds(frame_stopwatch);
+    //    start_stopwatch(frame_stopwatch);
+    //    input_system_begin_frame();
 
-    // Setup engine
-	Clock::Init();
-	g_inputSystem.Init(m_pWindow);
-	m_pRenderer = new VulkanRenderer(m_pWindow);
-	m_pRenderer->Setup();
+    //    // update
+    //    update_window(*app_window);
+    //    update_input_system();
+    //    update_camera(scene_camera, ds);
 
-    // Setup camera
-	m_sceneCamera.SetPosition(Vec3(5.0f, 5.0f, 5.0f));
-	m_sceneCamera.LookAt(Vec3::ZERO, Vec3::UP);
-	m_pRenderer->SetCamera(&m_sceneCamera);
+    //    // render
+    //    render_frame();
+    //    
+    //    // end frame
+    //    report_fps(frame_stopwatch);
+    //    sleep_remaining_frame(frame_stopwatch);
+    //}
 
-	m_bIsRunning = true;
-}
-
-void App::MainLoop()
-{
-	while (m_bIsRunning)
-	{
-		F32 deltaSeconds = m_frameClock.GetSecondsElapsed();
-		m_frameClock.Start();
-
-		Update(deltaSeconds);
-
-		// No need to render if window is minimized
-		if (!m_pWindow->IsMinimized())
-		{
-			m_pRenderer->RenderFrame();
-		}
-
-		ReportFps(deltaSeconds);
-		
-		F32 timeToRunFrame = m_frameClock.GetSecondsElapsed();
-		SleepFrame(timeToRunFrame);
-	}
-}
-
-void App::ReportFps(F32 deltaSeconds)
-{
-	m_frameCount++;
-	m_frameTimeAccrual += deltaSeconds;
-
-	if (m_frameTimeAccrual >= FPS_CALC_TIME_INTERVAL_SECONDS)
-	{
-		m_currentFramesPerSecond = static_cast<I32>(static_cast<F32>(m_frameCount) / m_frameTimeAccrual);
-
-		std::ostringstream stringStream;
-		stringStream << "SM Workbench" << " - Current FPS: " << m_currentFramesPerSecond << "\n";
-		std::string newWindowTitle = stringStream.str();
-		m_pWindow->SetTitle(newWindowTitle);
-
-		m_frameCount = 0;
-		m_frameTimeAccrual = 0.0f;
-	}
-}
-
-void App::Update(float ds)
-{
-	g_inputSystem.BeforeWindowUpdate();
-	m_pWindow->Update();
-	g_inputSystem.Update();
-	m_sceneCamera.Update(ds);
-}
-
-void App::SleepFrame(F32 deltaSeconds)
-{
-	const F32 targetSecondsPerFrame = 1.0f / TARGET_FPS;
-
-	// frame took longer than our target time
-	if (deltaSeconds >= targetSecondsPerFrame)
-	{
-		return;
-	}
-
-	F32 timeToSleepMs = (targetSecondsPerFrame - deltaSeconds) * 1000.0f;
-	Thread::PreciseSleepMs(timeToSleepMs);
-}
-
-void App::Teardown()
-{
-	m_pRenderer->Teardown();
-	delete m_pRenderer;
-
-	m_pWindow->Teardown();
-	delete m_pWindow;
+    //// cleanup
+    //deinit_renderer();
+    //destroy_window(app_window);
 }
