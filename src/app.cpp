@@ -42,7 +42,6 @@ void run_app()
 
     init_time();
     init_input(app_window);
-
     //init_renderer();
 
     //camera_t scene_camera = create_camera(...);
