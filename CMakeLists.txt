@@ -8,8 +8,8 @@ project(sm-workbench)
 
 add_subdirectory(lib/sm-engine)
 
-add_executable(sm-workbench WIN32 src/App.cpp
-                                  src/MainWin.cpp
+add_executable(sm-workbench WIN32 src/app.cpp
+                                  src/main_win32.cpp
                                   )
 
 set_target_properties(sm-workbench PROPERTIES 

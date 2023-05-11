@@ -1,9 +1,11 @@
 #include "app.h"
+#include "engine/core/debug.h"
 #include "engine/core/config.h"
 #include "engine/core/macros.h"
 #include "engine/core/time.h"
 #include "engine/render/window.h"
 #include "engine/platform/windows_include.h"
+#include "engine/input/input.h"
 
 static bool s_is_running = false;
 
@@ -35,11 +37,12 @@ static void window_message_handler(UINT msg, WPARAM w_param, LPARAM l_param, voi
 
 void run_app()
 {
-    window_t* p_app_window = create_window("SM Workbench", WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_ALLOW_RESIZE);
-    add_window_callback(p_app_window, window_message_handler);
+    window_t* app_window = create_window("SM Workbench", WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_ALLOW_RESIZE);
+    add_window_callback(app_window, window_message_handler);
 
     init_time();
-    init_input();
+    init_input(app_window);
+
     //init_renderer();
 
     //camera_t scene_camera = create_camera(...);
