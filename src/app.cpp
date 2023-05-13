@@ -40,25 +40,25 @@ void run_app()
     window_t* app_window = create_window("SM Workbench", WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_ALLOW_RESIZE);
     add_window_callback(app_window, window_message_handler);
 
-    init_time();
-    init_input(app_window);
+    time_init();
+    input_init(app_window);
     //init_renderer();
 
     //camera_t scene_camera = create_camera(...);
     //set_render_camera(scene_camera);
 
     //stopwatch_t frame_stopwatch = create_stopwatch();
-    //s_is_running = true;
-    //while(s_is_running)
-    //{
+    s_is_running = true;
+    while(s_is_running)
+    {
     //    // begin frame
     //    f32 ds = get_elapsed_time_seconds(frame_stopwatch);
     //    start_stopwatch(frame_stopwatch);
-    //    input_system_begin_frame();
+        input_begin_frame();
 
     //    // update
     //    update_window(*app_window);
-    //    update_input_system();
+        input_update();
     //    update_camera(scene_camera, ds);
 
     //    // render
@@ -67,7 +67,7 @@ void run_app()
     //    // end frame
     //    report_fps(frame_stopwatch);
     //    sleep_remaining_frame(frame_stopwatch);
-    //}
+    }
 
     //// cleanup
     //deinit_renderer();
