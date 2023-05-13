@@ -3,9 +3,10 @@
 #include "engine/core/config.h"
 #include "engine/core/macros.h"
 #include "engine/core/time.h"
-#include "engine/render/window.h"
-#include "engine/platform/windows_include.h"
 #include "engine/input/input.h"
+#include "engine/platform/windows_include.h"
+#include "engine/render/vulkan/vulkan_renderer.h"
+#include "engine/render/window.h"
 #include "engine/thread/thread.h"
 
 #include <sstream>
@@ -84,7 +85,7 @@ void run_app()
 
     time_init();
     input_init(app_window);
-    //renderer_init(app_window);
+    renderer_init(app_window);
 
     //camera_t scene_camera = create_camera(...);
     //set_render_camera(scene_camera);

@@ -9,6 +9,7 @@ project(sm-workbench)
 add_subdirectory(lib/sm-engine)
 
 add_executable(sm-workbench WIN32 src/app.cpp
+                                  src/app.h
                                   src/main_win32.cpp
                                   )
 
