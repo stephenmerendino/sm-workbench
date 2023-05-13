@@ -6,10 +6,14 @@
 #include "engine/render/window.h"
 #include "engine/platform/windows_include.h"
 #include "engine/input/input.h"
+#include "engine/thread/thread.h"
+
+#include <sstream>
 
 static bool s_is_running = false;
 
-static void window_message_handler(UINT msg, WPARAM w_param, LPARAM l_param, void* user_args)
+static 
+void window_message_handler(UINT msg, WPARAM w_param, LPARAM l_param, void* user_args)
 {
     UNUSED(l_param);
     UNUSED(user_args);
@@ -35,41 +39,82 @@ static void window_message_handler(UINT msg, WPARAM w_param, LPARAM l_param, voi
     }
 }
 
+static
+void report_fps(window_t* window, f32 ds)
+{
+    static i32 s_frame_count = 0;
+    static f32 s_frame_time_accrucal = 0.0f;
+
+	s_frame_count++;
+	s_frame_time_accrucal += ds;
+
+	if (s_frame_time_accrucal >= FPS_CALC_TIME_INTERVAL_SECONDS)
+	{
+		f32 avg_current_fps = (f32)s_frame_count / s_frame_time_accrucal;
+
+		std::ostringstream ss;
+		ss << "SM Workbench" << " - Current FPS: " << avg_current_fps << "\n";
+		std::string new_title = ss.str();
+        window_set_title(window, new_title.c_str());
+
+		s_frame_count = 0;
+		s_frame_time_accrucal = 0.0f;
+	}
+}
+
+static
+void sleep_remaining_frame(f32 frame_time_seconds)
+{
+	const f32 target_seconds_per_frame = 1.0f / TARGET_FPS;
+
+	// frame took longer than our target time
+	if (frame_time_seconds >= target_seconds_per_frame)
+	{
+		return;
+	}
+
+	f32 time_to_sleep_ms = (target_seconds_per_frame - frame_time_seconds) * 1000.0f;
+    thread_sleep_ms(time_to_sleep_ms);
+}
+
 void run_app()
 {
-    window_t* app_window = create_window("SM Workbench", WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_ALLOW_RESIZE);
-    add_window_callback(app_window, window_message_handler);
+    window_t* app_window = window_create("SM Workbench", WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_ALLOW_RESIZE);
+    window_add_msg_callback(app_window, window_message_handler);
 
     time_init();
     input_init(app_window);
-    //init_renderer();
+    //renderer_init(app_window);
 
     //camera_t scene_camera = create_camera(...);
     //set_render_camera(scene_camera);
 
-    //stopwatch_t frame_stopwatch = create_stopwatch();
+    stopwatch_t frame_stopwatch;
     s_is_running = true;
     while(s_is_running)
     {
-    //    // begin frame
-    //    f32 ds = get_elapsed_time_seconds(frame_stopwatch);
-    //    start_stopwatch(frame_stopwatch);
+        // begin frame
+        f32 ds = stopwatch_get_elapsed_seconds(frame_stopwatch);
+        report_fps(app_window, ds);
+
+        stopwatch_start(frame_stopwatch);
+
         input_begin_frame();
 
-    //    // update
-    //    update_window(*app_window);
+        // update
+        window_update(app_window);
         input_update();
     //    update_camera(scene_camera, ds);
 
-    //    // render
-    //    render_frame();
-    //    
-    //    // end frame
-    //    report_fps(frame_stopwatch);
-    //    sleep_remaining_frame(frame_stopwatch);
+        // render
+        //renderer_render_frame();
+        
+        // end frame
+        f32 frame_time_secs = stopwatch_get_elapsed_seconds(frame_stopwatch);
+        sleep_remaining_frame(frame_time_secs);
     }
 
     //// cleanup
     //deinit_renderer();
-    //destroy_window(app_window);
+    window_destroy(app_window);
 }
