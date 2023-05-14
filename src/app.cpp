@@ -5,6 +5,7 @@
 #include "engine/core/time.h"
 #include "engine/input/input.h"
 #include "engine/platform/windows_include.h"
+#include "engine/render/camera.h"
 #include "engine/render/vulkan/vulkan_renderer.h"
 #include "engine/render/window.h"
 #include "engine/thread/thread.h"
@@ -87,35 +88,34 @@ void run_app()
     input_init(app_window);
     renderer_init(app_window);
 
-    //camera_t scene_camera = create_camera(...);
-    //set_render_camera(scene_camera);
+    camera_t scene_camera;
+    renderer_set_main_camera(&scene_camera);
 
     stopwatch_t frame_stopwatch;
     s_is_running = true;
     while(s_is_running)
     {
-        // begin frame
+        // stats
         f32 ds = stopwatch_get_elapsed_seconds(frame_stopwatch);
         report_fps(app_window, ds);
 
+        // begin frame
         stopwatch_start(frame_stopwatch);
-
         input_begin_frame();
 
         // update
         window_update(app_window);
         input_update();
-    //    update_camera(scene_camera, ds);
+        camera_update(scene_camera, ds);
 
         // render
-        //renderer_render_frame();
+        renderer_render_frame();
         
         // end frame
         f32 frame_time_secs = stopwatch_get_elapsed_seconds(frame_stopwatch);
         sleep_remaining_frame(frame_time_secs);
     }
 
-    //// cleanup
-    //deinit_renderer();
+    renderer_deinit();
     window_destroy(app_window);
 }
