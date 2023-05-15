@@ -1,4 +1,5 @@
 #include "app.h"
+#include "game.h"
 #include "engine/core/debug.h"
 #include "engine/core/config.h"
 #include "engine/core/macros.h"
@@ -91,6 +92,10 @@ void run_app()
     camera_t scene_camera;
     renderer_set_main_camera(&scene_camera);
 
+    {
+        game_init();
+    }
+
     stopwatch_t frame_stopwatch;
     s_is_running = true;
     while(s_is_running)
@@ -103,10 +108,19 @@ void run_app()
         stopwatch_start(frame_stopwatch);
         input_begin_frame();
 
+        {
+            game_begin_frame();
+        }
+
         // update
         window_update(app_window);
         input_update();
         camera_update(scene_camera, ds);
+
+        {
+            game_update(ds);
+            game_render();
+        }
 
         // render
         renderer_render_frame();

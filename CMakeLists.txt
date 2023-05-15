@@ -10,6 +10,8 @@ add_subdirectory(lib/sm-engine)
 
 add_executable(sm-workbench WIN32 src/app.cpp
                                   src/app.h
+                                  src/game.cpp
+                                  src/game.h
                                   src/main_win32.cpp
                                   )
 
