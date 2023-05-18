@@ -1,4 +1,5 @@
 #include "app.h"
+#include "engine/job/job_system.h"
 #include "game.h"
 #include "engine/core/debug.h"
 #include "engine/core/config.h"
@@ -85,6 +86,7 @@ void run_app()
     window_t* app_window = window_create("SM Workbench", WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_ALLOW_RESIZE);
     window_add_msg_callback(app_window, window_message_handler);
 
+    job_system_init();
     time_init();
     input_init(app_window);
     renderer_init(app_window);
@@ -131,5 +133,6 @@ void run_app()
     }
 
     renderer_deinit();
+    job_system_shutdown();
     window_destroy(app_window);
 }

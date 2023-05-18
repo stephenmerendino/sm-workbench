@@ -1,25 +1,32 @@
 Current todo
-[] Debug shapes
+[] Generate command buffers every frame from scratch instead of all at startup
+[] Keep list of objects to draw along with a transform for each
+[] Be able to add and remove things from the list as wanted
+[] Add basic shapes
+
+Next
+[] Basic shapes
     [] Cube
     [] Sphere
     [] Cone
     [] Pyramid
     [] Plane/Quad
     [] Donut
-
-Next
 [] Debug Draw System
+[] Objects can be selected with a nice highlight effect
+[] Selected objects have a working transform widget
+    [] Move widget
+    [] Rotate widget
+    [] Scale widget
 [] Dot3 Lighting
     [] Directional
     [] Point
     [] Spot
 [] Shadow casting lights
+[] Simple scene saving/loading
 [] Hot reload shaders
 [] MSAA toggleable / configurable
 [] Simple UI to start interacting with scene 
-[] Move widget
-[] Rotate widget
-[] Scale widget
 [] Render doc and Pix are both supported with labels
 [] Viewport and Scissor are dynamic state
 [] Cubemap in scene
