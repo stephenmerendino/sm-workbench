@@ -1,5 +1,7 @@
 Current todo
+[] Render to an offscreen render target, then blit it to the swap chain image
 [] Generate command buffers every frame from scratch instead of all at startup
+    [] Each frame needs a primary buffer to submit
 [] Keep list of objects to draw along with a transform for each
 [] Be able to add and remove things from the list as wanted
 [] Add basic shapes

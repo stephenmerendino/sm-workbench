@@ -1,5 +1,6 @@
 #include "app.h"
 #include "engine/job/job_system.h"
+#include "engine/render/Camera.h"
 #include "game.h"
 #include "engine/core/debug.h"
 #include "engine/core/config.h"
@@ -92,11 +93,13 @@ void run_app()
     renderer_init(app_window);
 
     camera_t scene_camera;
+    scene_camera.m_world_pos = make_vec3(2.0f, 2.0f, 2.0f);
+    camera_look_at(scene_camera, VEC3_ZERO);
     renderer_set_main_camera(&scene_camera);
 
-    {
-        game_init();
-    }
+    ////////////////////////
+    game_init();
+    ////////////////////////
 
     stopwatch_t frame_stopwatch;
     s_is_running = true;
@@ -110,19 +113,20 @@ void run_app()
         stopwatch_start(frame_stopwatch);
         input_begin_frame();
 
-        {
-            game_begin_frame();
-        }
+        ////////////////////////
+        game_begin_frame();
+        ////////////////////////
 
         // update
         window_update(app_window);
         input_update();
         camera_update(scene_camera, ds);
+        renderer_update();
 
-        {
-            game_update(ds);
-            game_render();
-        }
+        ////////////////////////
+        game_update(ds);
+        game_render();
+        ////////////////////////
 
         // render
         renderer_render_frame();
