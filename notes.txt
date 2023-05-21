@@ -1,0 +1,24 @@
+What do we need to be able to render an abitrary mesh?
+
+    Vertex Buffer (VkBuffer)
+    Index Buffer (VkBuffer)
+    Pipeline (VkPipeline)
+        Shaders (VkShaderModule)
+        Descriptor Set Layout (VkDescriptorSetLayout)
+    Descriptor Set
+        Uniform Buffer for MVP (VkBuffer)
+        Texture Sampler (VkImageView + VkSampler)
+
+    // possible setup
+    renderable_mesh_t
+        Vertex Buffer
+        Index Buffer
+        mesh_t
+            vertexes
+            indexes
+        material_t
+            pipeline_t
+            descriptor sets
+
+Meshes and the pipeline/shaders/descriptors are different.
+The mesh is what we are drawing, the pipeline is how we are drawing it.
