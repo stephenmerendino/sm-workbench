@@ -18,7 +18,15 @@ What do we need to be able to render an abitrary mesh?
             indexes
         material_t
             pipeline_t
+            textures
+            uniforms
             descriptor sets
 
-Meshes and the pipeline/shaders/descriptors are different.
-The mesh is what we are drawing, the pipeline is how we are drawing it.
+The mesh is what we are drawing, the material is how we are drawing it.
+
+per frame uniform buffer
+view-projection
+scene lights
+
+per material uniform buffer/descriptors
+per material shaders/textures
