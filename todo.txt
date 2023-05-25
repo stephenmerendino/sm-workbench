@@ -1,16 +1,61 @@
 Current todo
-[] Keep list of objects to draw along with a transform for each
-[] Be able to add and remove things from the list as wanted
-[] Add basic shapes
+[x] rename renderable_mesh to mesh_instance
+[] add a mesh id to mesh that is a hash of the filename
+[] keep a list of loaded meshes
+    [] use a an array to store the loaded meshes, cache perf will win over lookup complexity compared to a hash table
+    [] keep a mesh id to each mesh instance so we don't have to hold pointers
+[] each frame preallocates a large number of gpu instance draw uniform buffers 
+    [] each mesh instance gets a cpu coherent instance data buffer to copy its current instance data to
+    [] each frame each mesh instance gets assigned a "frame instance buffer" that it sets up to copy on the gpu from its own buffer to the frame one
+    [] the buffer copy needs to be set up with gpu dependencies properly so its as performant as possible while still getting the data in time
+    [] the assigned frame buffer is what we bind as our shader uniform for the instance draw data
+[] add a new material data type
+    [] each material has
+        - hashed name id
+        - shaders
+        - descriptor set layout
+        - constant shader resources
+            -textures
+            -uniform buffers
+            -other data
+        -descriptor set loaded with all data
+[] each frame gets a descriptor set
+    [] frame descriptor set is constant across all shaders and its data is globally constant
+    [] this is where to store lights, delta time, other global data
+[] every shader follows a similar pattern
+    - descriptor set 0, binding 0 global constant uniforms 
+    - descriptor set 1, bindings 0-n material uniforms
+    - descriptor set 1, binding 0 instance draw uniform buffer 
+[] mesh instance becomes a combination of
+    -mesh
+    -material
+    -transform
+[] for each mesh instance loaded we create a pipeline for each render pass we have from the mesh and material, right now only a main draw render pass
+[] we have a scene struct that contains list of loaded mesh instances in the scene
+[] every frame we loop over the scene list and render the meshes in the main draw pass
+[] we can add or remove mesh instances from the scene list
+[] we preload each shape primitive mesh
+    [] cube
+    [] sphere
+    [] cone
+    [] pyramid
+    [] plane/quad
+    [] torus 
+    [] frustum
+    [] axes
+    [] arrow
+    [] 2d circle on a plane in 3d, with options for cutting some of the circle off by degrees
+    [] 2d square on a plane in 3d,
+[] debug draw system
+    [] debug draw this frame
+    [] debug draw on a timer
+    [] position, scale, rotation params
+    [] special case for each type shape type, eg arrow could have an origin and point at parameterization
+[] basic lighting
+    [] tbd
 
 Next
 [] Basic shapes
-    [] Cube
-    [] Sphere
-    [] Cone
-    [] Pyramid
-    [] Plane/Quad
-    [] Donut
 [] Debug Draw System
 [] Objects can be selected with a nice highlight effect
 [] Selected objects have a working transform widget
