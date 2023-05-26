@@ -1,9 +1,9 @@
 Current todo
 [x] rename renderable_mesh to mesh_instance
-[] add a mesh id to mesh that is a hash of the filename
-[] keep a list of loaded meshes
-    [] use a an array to store the loaded meshes, cache perf will win over lookup complexity compared to a hash table
-    [] keep a mesh id to each mesh instance so we don't have to hold pointers
+[x] add a mesh id to mesh that is a hash of the filename
+[x] keep a list of loaded meshes
+    [x] use a an array to store the loaded meshes, cache perf will win over lookup complexity compared to a hash table
+    [x] keep a mesh id to each mesh instance so we don't have to hold pointers
 [] each frame preallocates a large number of gpu instance draw uniform buffers 
     [] each mesh instance gets a cpu coherent instance data buffer to copy its current instance data to
     [] each frame each mesh instance gets assigned a "frame instance buffer" that it sets up to copy on the gpu from its own buffer to the frame one
@@ -53,6 +53,12 @@ Current todo
     [] special case for each type shape type, eg arrow could have an origin and point at parameterization
 [] basic lighting
     [] tbd
+
+Improvements
+[] allocate a block of mesh render datas so they are contiguous in memory
+[] unload the cpu side mesh data once the renderer sets its mesh render data up
+[] get away from std::vector usage
+[] get away from std::string usage
 
 Next
 [] Basic shapes
