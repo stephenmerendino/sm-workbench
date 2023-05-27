@@ -102,6 +102,8 @@ void run_app()
     ////////////////////////
 
     stopwatch_t frame_stopwatch;
+    stopwatch_start(frame_stopwatch);
+
     s_is_running = true;
     while(s_is_running)
     {
@@ -121,7 +123,7 @@ void run_app()
         window_update(app_window);
         input_update();
         camera_update(scene_camera, ds);
-        renderer_update();
+        renderer_update(ds);
 
         ////////////////////////
         game_update(ds);

@@ -5,9 +5,8 @@ Current todo
     [x] use a an array to store the loaded meshes, cache perf will win over lookup complexity compared to a hash table
     [x] keep a mesh id to each mesh instance so we don't have to hold pointers
 [] each frame preallocates a large number of gpu instance draw uniform buffers 
-    [] each mesh instance gets a cpu coherent instance data buffer to copy its current instance data to
-    [] each frame each mesh instance gets assigned a "frame instance buffer" that it sets up to copy on the gpu from its own buffer to the frame one
-    [] the buffer copy needs to be set up with gpu dependencies properly so its as performant as possible while still getting the data in time
+    [] each frame each mesh is assigned a instance draw buffer from the current frame
+    [] every frame each mesh updates its assigned instance draw buffer with its current data
     [] the assigned frame buffer is what we bind as our shader uniform for the instance draw data
 [] add a new material data type
     [] each material has
@@ -54,9 +53,11 @@ Current todo
 [] basic lighting
     [] tbd
 
-Improvements
+Optimizations
 [] allocate a block of mesh render datas so they are contiguous in memory
 [] unload the cpu side mesh data once the renderer sets its mesh render data up
+[] allocate on gpu a big chunk of instance draw datas and write them all at once
+    [] each mesh draw has an index into the instance draw data array on gpu side
 [] get away from std::vector usage
 [] get away from std::string usage
 
