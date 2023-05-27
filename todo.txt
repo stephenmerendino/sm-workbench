@@ -1,13 +1,4 @@
 Current todo
-[x] rename renderable_mesh to mesh_instance
-[x] add a mesh id to mesh that is a hash of the filename
-[x] keep a list of loaded meshes
-    [x] use a an array to store the loaded meshes, cache perf will win over lookup complexity compared to a hash table
-    [x] keep a mesh id to each mesh instance so we don't have to hold pointers
-[] each frame preallocates a large number of gpu instance draw uniform buffers 
-    [] each frame each mesh is assigned a instance draw buffer from the current frame
-    [] every frame each mesh updates its assigned instance draw buffer with its current data
-    [] the assigned frame buffer is what we bind as our shader uniform for the instance draw data
 [] add a new material data type
     [] each material has
         - hashed name id
@@ -37,6 +28,7 @@ Current todo
     [] cube
     [] sphere
     [] cone
+    [] cylinder
     [] pyramid
     [] plane/quad
     [] torus 
