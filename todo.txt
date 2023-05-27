@@ -1,4 +1,9 @@
 Current todo
+[x] split up descriptors into separate sets
+    set 0 = global
+    set 1 = frame
+    set 2 = material
+    set 3 = instance
 [] add a new material data type
     [] each material has
         - hashed name id
@@ -54,8 +59,7 @@ Optimizations
 [] get away from std::string usage
 
 Next
-[] Basic shapes
-[] Debug Draw System
+[] Launch a console with output from the program with nice colors
 [] Objects can be selected with a nice highlight effect
 [] Selected objects have a working transform widget
     [] Move widget
