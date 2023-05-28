@@ -1,31 +1,15 @@
 Current todo
-[x] split up descriptors into separate sets
-    set 0 = global
-    set 1 = frame
-    set 2 = material
-    set 3 = instance
 [] add a new material data type
-    [] each material has
-        - hashed name id
+    [x] each material has
         - shaders
         - descriptor set layout
         - constant shader resources
             -textures
-            -uniform buffers
-            -other data
         -descriptor set loaded with all data
+    [] clean up material create/destroy
 [] each frame gets a descriptor set
     [] frame descriptor set is constant across all shaders and its data is globally constant
     [] this is where to store lights, delta time, other global data
-[] every shader follows a similar pattern
-    - descriptor set 0, binding 0 global constant uniforms 
-    - descriptor set 1, bindings 0-n material uniforms
-    - descriptor set 1, binding 0 instance draw uniform buffer 
-[] mesh instance becomes a combination of
-    -mesh
-    -material
-    -transform
-[] for each mesh instance loaded we create a pipeline for each render pass we have from the mesh and material, right now only a main draw render pass
 [] we have a scene struct that contains list of loaded mesh instances in the scene
 [] every frame we loop over the scene list and render the meshes in the main draw pass
 [] we can add or remove mesh instances from the scene list
@@ -49,6 +33,7 @@ Current todo
     [] special case for each type shape type, eg arrow could have an origin and point at parameterization
 [] basic lighting
     [] tbd
+[] proper resource manager
 
 Optimizations
 [] allocate a block of mesh render datas so they are contiguous in memory
