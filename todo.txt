@@ -10,6 +10,7 @@ Current todo
 [] each frame gets a descriptor set
     [] frame descriptor set is constant across all shaders and its data is globally constant
     [] this is where to store lights, delta time, other global data
+[] debug names for each vulkan object to help with debugging
 [] we have a scene struct that contains list of loaded mesh instances in the scene
 [] every frame we loop over the scene list and render the meshes in the main draw pass
 [] we can add or remove mesh instances from the scene list
