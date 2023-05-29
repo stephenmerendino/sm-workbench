@@ -1,16 +1,4 @@
 Current todo
-[] add a new material data type
-    [x] each material has
-        - shaders
-        - descriptor set layout
-        - constant shader resources
-            -textures
-        -descriptor set loaded with all data
-    [] clean up material create/destroy
-[] each frame gets a descriptor set
-    [] frame descriptor set is constant across all shaders and its data is globally constant
-    [] this is where to store lights, delta time, other global data
-[] debug names for each vulkan object to help with debugging
 [] we have a scene struct that contains list of loaded mesh instances in the scene
 [] every frame we loop over the scene list and render the meshes in the main draw pass
 [] we can add or remove mesh instances from the scene list
@@ -27,14 +15,22 @@ Current todo
     [] arrow
     [] 2d circle on a plane in 3d, with options for cutting some of the circle off by degrees
     [] 2d square on a plane in 3d,
+[] debug names for each vulkan object to help with debugging
 [] debug draw system
     [] debug draw this frame
     [] debug draw on a timer
     [] position, scale, rotation params
     [] special case for each type shape type, eg arrow could have an origin and point at parameterization
-[] basic lighting
-    [] tbd
+[] Dot3 Lighting
+    [] Directional
+    [] Point
+    [] Spot
 [] proper resource manager
+[] Objects can be selected with a nice highlight effect
+[] Selected objects have a working transform widget
+    [] Move widget
+    [] Rotate widget
+    [] Scale widget
 
 Optimizations
 [] allocate a block of mesh render datas so they are contiguous in memory
@@ -46,15 +42,6 @@ Optimizations
 
 Next
 [] Launch a console with output from the program with nice colors
-[] Objects can be selected with a nice highlight effect
-[] Selected objects have a working transform widget
-    [] Move widget
-    [] Rotate widget
-    [] Scale widget
-[] Dot3 Lighting
-    [] Directional
-    [] Point
-    [] Spot
 [] Shadow casting lights
 [] Simple scene saving/loading
 [] Hot reload shaders

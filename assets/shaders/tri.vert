@@ -2,6 +2,13 @@
 #extension GL_ARB_separate_shader_objects : enable
 
 // mesh instance descriptors
+layout(set = 1, binding = 0, row_major) uniform FrameRenderData 
+{
+    float time;
+	float delta_time_seconds;
+} frame_render_data;
+
+// mesh instance descriptors
 layout(set = 3, binding = 0, row_major) uniform MeshInstanceRenderData 
 {
 	mat4 mvp;
