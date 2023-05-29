@@ -1,18 +1,19 @@
 Current todo
 [] proper resource manager
-    [] meshes
-    [] mesh render data
-    [] materials
-        [] we can reference materials by material_id_t
+    [x] meshes
+    [x] mesh render data
+    [] shaders (release after pipeline creation)
     [] textures
         [] we can reference textures by texture_id_t
-    [] shaders (release after pipeline creation)
+    [] materials
+        [] we can reference materials by material_id_t
 [] mesh instance can be created from mesh and material that are resource managed
 [] we have a scene struct that contains list of loaded mesh instances in the scene
 [] every frame we loop over the scene list and render the meshes in the main draw pass
 [] we can add or remove mesh instances from the scene list
 [] we preload each shape primitive mesh
-    [] cube
+    [x] cube
+    [x] axes
     [] sphere
     [] cone
     [] cylinder
@@ -20,9 +21,9 @@ Current todo
     [] plane/quad
     [] torus 
     [] frustum
-    [] axes
     [] arrow
     [] 2d circle on a plane in 3d, with options for cutting some of the circle off by degrees
+    [] 2d torus on a plane in 3d
     [] 2d square on a plane in 3d,
 [] debug names for each vulkan object to help with debugging
 [] debug draw system
