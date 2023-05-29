@@ -58,7 +58,7 @@ void report_fps(window_t* window, f32 ds)
 		f32 avg_current_fps = (f32)s_frame_count / s_frame_time_accrucal;
 
 		std::ostringstream ss;
-		ss << "SM Workbench" << " - Current FPS: " << avg_current_fps << "\n";
+		ss << "sm workbench" << " - fps: " << avg_current_fps << " - frame time ms: " << ds * 1000.0f;
 		std::string new_title = ss.str();
         window_set_title(window, new_title.c_str());
 

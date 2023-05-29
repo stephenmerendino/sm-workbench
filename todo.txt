@@ -1,4 +1,13 @@
 Current todo
+[] proper resource manager
+    [] meshes
+    [] mesh render data
+    [] materials
+        [] we can reference materials by material_id_t
+    [] textures
+        [] we can reference textures by texture_id_t
+    [] shaders (release after pipeline creation)
+[] mesh instance can be created from mesh and material that are resource managed
 [] we have a scene struct that contains list of loaded mesh instances in the scene
 [] every frame we loop over the scene list and render the meshes in the main draw pass
 [] we can add or remove mesh instances from the scene list
@@ -25,7 +34,6 @@ Current todo
     [] Directional
     [] Point
     [] Spot
-[] proper resource manager
 [] Objects can be selected with a nice highlight effect
 [] Selected objects have a working transform widget
     [] Move widget
