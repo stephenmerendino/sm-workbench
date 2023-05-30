@@ -1,13 +1,4 @@
 Current todo
-[] proper resource manager
-    [x] meshes
-    [x] mesh render data
-    [] shaders (release after pipeline creation)
-    [] textures
-        [] we can reference textures by texture_id_t
-    [] materials
-        [] we can reference materials by material_id_t
-[] mesh instance can be created from mesh and material that are resource managed
 [] we have a scene struct that contains list of loaded mesh instances in the scene
 [] every frame we loop over the scene list and render the meshes in the main draw pass
 [] we can add or remove mesh instances from the scene list
@@ -25,6 +16,9 @@ Current todo
     [] 2d circle on a plane in 3d, with options for cutting some of the circle off by degrees
     [] 2d torus on a plane in 3d
     [] 2d square on a plane in 3d,
+[] imgui integration
+    [] show info about scene being rendered
+    [] show info about resources that are loaded
 [] debug names for each vulkan object to help with debugging
 [] debug draw system
     [] debug draw this frame
@@ -40,6 +34,21 @@ Current todo
     [] Move widget
     [] Rotate widget
     [] Scale widget
+[] optimization pass, we should try to keep fps at 120, prefereably at 144 or 240 even
+[] proper resource manager
+    [x] meshes
+    [x] mesh render data
+    [] shaders (release after pipeline creation)
+    [] textures
+        [] we can reference textures by texture_id_t
+    [x] materials
+        [x] we can reference materials by material_id_t
+
+Ideas
+[] 3d voxel visualiser
+    [] render 3d voxel grib, each voxel samples 3d texture and turns on/off based on sampled value
+        [] slider(s) to control cutoff value, and maybe gradient?
+    [] useful view for rendering clouds
 
 Optimizations
 [] allocate a block of mesh render datas so they are contiguous in memory
