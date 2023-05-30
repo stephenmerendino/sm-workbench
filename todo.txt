@@ -1,7 +1,8 @@
 Current todo
-[] we have a scene struct that contains list of loaded mesh instances in the scene
-[] every frame we loop over the scene list and render the meshes in the main draw pass
-[] we can add or remove mesh instances from the scene list
+[] rotate around arbitrary axis
+[] generate random unit vector
+[] generate random number between n and m
+[] increase max instance count per frame
 [] we preload each shape primitive mesh
     [x] cube
     [x] axes
@@ -25,16 +26,17 @@ Current todo
     [] debug draw on a timer
     [] position, scale, rotation params
     [] special case for each type shape type, eg arrow could have an origin and point at parameterization
-[] Dot3 Lighting
-    [] Directional
-    [] Point
-    [] Spot
 [] Objects can be selected with a nice highlight effect
 [] Selected objects have a working transform widget
     [] Move widget
     [] Rotate widget
     [] Scale widget
+[] Dot3 Lighting
+    [] Directional
+    [] Point
+    [] Spot
 [] optimization pass, we should try to keep fps at 120, prefereably at 144 or 240 even
+    [] MSAA toggleable / configurable
 [] proper resource manager
     [x] meshes
     [x] mesh render data
@@ -59,28 +61,29 @@ Optimizations
 [] get away from std::string usage
 
 Next
-[] Launch a console with output from the program with nice colors
+[] Hot key to launch a console with output from the program with nice colors
 [] Shadow casting lights
 [] Simple scene saving/loading
 [] Hot reload shaders
-[] MSAA toggleable / configurable
 [] Simple UI to start interacting with scene 
 [] Render doc and Pix are both supported with labels
 [] Viewport and Scissor are dynamic state
 [] Cubemap in scene
+[] Integrate VMA
 
 Future big features
+[] Custom GPU Memory Allocator
+[] Deferred Renderer
+[] PBR
+[] TAA
+[] Pathtracing
+[] Volumetrics & clouds
+[] GPU Particles
 [] Render Graph
 [] Noise Generator
-[] Volumetrics & clouds
-[] Pathtracing
-[] PBR
-[] Deferred Renderer
 [] Forward+ Renderer
-[] GPU Particles
 [] SSR
 [] AO
-[] TAA
 [] Water
 [] Terrain
 [] GI
