@@ -2,6 +2,7 @@ Current todo
 [] we preload each shape primitive mesh
     [x] cube
     [x] axes
+    [] tetrahedron
     [] sphere
     [] cone
     [] cylinder
