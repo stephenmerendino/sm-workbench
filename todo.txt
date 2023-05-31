@@ -1,8 +1,4 @@
 Current todo
-[] rotate around arbitrary axis
-[] generate random unit vector
-[] generate random number between n and m
-[] increase max instance count per frame
 [] we preload each shape primitive mesh
     [x] cube
     [x] axes
