@@ -2,12 +2,15 @@ Current todo
 [] we preload each shape primitive mesh
     [x] cube
     [x] axes
-    [] tetrahedron
-    [] sphere
+    [x] tetrahedron
+    [] octahedron
+    [] dodecahedron
+    [] icosahedron
+        [] sphere
+    [] plane/quad
     [] cone
     [] cylinder
     [] pyramid
-    [] plane/quad
     [] torus 
     [] frustum
     [] arrow
@@ -44,6 +47,8 @@ Current todo
         [x] we can reference materials by material_id_t
 
 Ideas
+[] profile_msg("<name of scope>"), auto start stopwatch on constructor, then get elapsed time and print message on destructor
+    [] Use a macro to wrap the class with SCOPE_PROFILE_MSG() and eventually SCOPE_PROFILE_LOG(), SCOPE_PROFILE_LOG_AND_MSG()
 [] 3d voxel visualiser
     [] render 3d voxel grib, each voxel samples 3d texture and turns on/off based on sampled value
         [] slider(s) to control cutoff value, and maybe gradient?
