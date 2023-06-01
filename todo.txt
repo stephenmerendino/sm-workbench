@@ -3,10 +3,7 @@ Current todo
     [x] cube
     [x] axes
     [x] tetrahedron
-    [] octahedron
-    [] dodecahedron
-    [] icosahedron
-        [] sphere
+    [] uv sphere
     [] plane/quad
     [] cone
     [] cylinder
@@ -17,6 +14,13 @@ Current todo
     [] 2d circle on a plane in 3d, with options for cutting some of the circle off by degrees
     [] 2d torus on a plane in 3d
     [] 2d square on a plane in 3d,
+[] platonic solids
+    [] add support for generating dual of a polyhedron
+    [] add support for subdiving triangles of a mesh
+    [] octahedron
+    [] dodecahedron
+    [] icosahedron
+        [] icosphere
 [] imgui integration
     [] show info about scene being rendered
     [] show info about resources that are loaded
@@ -47,6 +51,33 @@ Current todo
         [x] we can reference materials by material_id_t
 
 Ideas
+[] Sick workflow idea
+    -we have an editor application that does all of the engine bootstrapping and a game as a dll with hooks that the editor/game wrapper call into
+    -we can live reload game code (very good)
+    -In the editor, we are always running the game sim
+        -the editor can request the game to load a "level"/"scene" (not sure what to call it yet)
+    -essentially you are playing the game, and you are able to drag and drop things into the level
+        -meshes
+        -lights
+        -"prefabs"
+        -"points of interest"
+    -everything you add to the level can be given a name
+    -this is all saved to an "asset db" as you are doing it
+    -game code can get handles to objects by their name and do stuff with them based on game logic
+    -you can code some gameplay, then hit a reload button while the game is running and it will recompile the game and reload it
+        -the editor will request a "save state" from the game before reloading
+        -after reloading the editor hands the save state back to the game so we are at the same exact spot
+        -you are immediately playing the game from where you left off, but with new game code
+    -engine can have levels which are separate scenes
+        -each level is given a set of hooks in code for things like startup, update, render, etc
+        -levels can have grouped items (this needs more thinking out)
+    [] major features editor needs to have
+        [] scene editor
+        [] asset importer
+        [] material toolkit
+        [] particle system toolkit
+        [] animation toolkit
+        [] prefab toolkit
 [] profile_msg("<name of scope>"), auto start stopwatch on constructor, then get elapsed time and print message on destructor
     [] Use a macro to wrap the class with SCOPE_PROFILE_MSG() and eventually SCOPE_PROFILE_LOG(), SCOPE_PROFILE_LOG_AND_MSG()
 [] 3d voxel visualiser
