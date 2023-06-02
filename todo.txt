@@ -6,9 +6,8 @@ Current todo
     [x] uv sphere
     [x] plane/quad
     [x] cone
-    [] cylinder
+    [x] cylinder
     [] torus 
-    [] quad
     [] frustum
     [] arrow
 [] imgui integration
