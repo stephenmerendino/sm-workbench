@@ -4,32 +4,16 @@ Current todo
     [x] axes
     [x] tetrahedron
     [x] uv sphere
-    [] plane/quad
-    [] cone
+    [x] plane/quad
+    [x] cone
     [] cylinder
-    [] pyramid
     [] torus 
+    [] quad
     [] frustum
     [] arrow
-    [] 2d circle on a plane in 3d, with options for cutting some of the circle off by degrees
-    [] 2d torus on a plane in 3d
-    [] 2d square on a plane in 3d,
-[] platonic solids
-    [] add support for generating dual of a polyhedron
-    [] add support for subdiving triangles of a mesh
-    [] octahedron
-    [] dodecahedron
-    [] icosahedron
-        [] icosphere
 [] imgui integration
     [] show info about scene being rendered
     [] show info about resources that are loaded
-[] debug names for each vulkan object to help with debugging
-[] debug draw system
-    [] debug draw this frame
-    [] debug draw on a timer
-    [] position, scale, rotation params
-    [] special case for each type shape type, eg arrow could have an origin and point at parameterization
 [] Objects can be selected with a nice highlight effect
 [] Selected objects have a working transform widget
     [] Move widget
@@ -39,6 +23,12 @@ Current todo
     [] Directional
     [] Point
     [] Spot
+[] debug names for each vulkan object to help with debugging
+[] debug draw system
+    [] debug draw this frame
+    [] debug draw on a timer
+    [] position, scale, rotation params
+    [] special case for each type shape type, eg arrow could have an origin and point at parameterization
 [] optimization pass, we should try to keep fps at 120, prefereably at 144 or 240 even
     [] MSAA toggleable / configurable
 [] proper resource manager
@@ -92,6 +82,15 @@ Optimizations
     [] each mesh draw has an index into the instance draw data array on gpu side
 [] get away from std::vector usage
 [] get away from std::string usage
+
+Fun Side Features
+[] Platonic solids
+    [] add support for generating dual of a polyhedron
+    [] add support for subdiving triangles of a mesh
+    [] octahedron
+    [] dodecahedron
+    [] icosahedron
+    [] icosphere
 
 Next
 [] Hot key to launch a console with output from the program with nice colors
