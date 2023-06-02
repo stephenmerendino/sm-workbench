@@ -3,7 +3,7 @@ Current todo
     [x] cube
     [x] axes
     [x] tetrahedron
-    [] uv sphere
+    [x] uv sphere
     [] plane/quad
     [] cone
     [] cylinder
