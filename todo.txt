@@ -8,7 +8,7 @@ Current todo
     [x] cone
     [x] cylinder
     [x] torus 
-    [wip] frustum
+    [wip] frustum (from origin + view-projection)
     [] arrow
 [] imgui integration
     [] show info about scene being rendered
@@ -22,6 +22,7 @@ Current todo
     [] Directional
     [] Point
     [] Spot
+[] skybox
 [] debug names for each vulkan object to help with debugging
 [] debug draw system
     [] debug draw this frame
@@ -99,7 +100,6 @@ Next
 [] Simple UI to start interacting with scene 
 [] Render doc and Pix are both supported with labels
 [] Viewport and Scissor are dynamic state
-[] Cubemap in scene
 [] Integrate VMA
 
 Future big features
