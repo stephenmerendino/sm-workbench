@@ -93,8 +93,8 @@ void run_app()
     renderer_init(app_window);
 
     camera_t scene_camera;
-    scene_camera.m_world_pos = make_vec3(5.0f, 5.0f, 5.0f);
-    camera_look_at(scene_camera, VEC3_ZERO);
+    scene_camera.m_world_pos = make_vec3(0.0f, 0.0f, 0.0f);
+    camera_look_at(scene_camera, VEC3_FORWARD);
     renderer_set_main_camera(&scene_camera);
 
     ////////////////////////

@@ -8,7 +8,7 @@ Current todo
     [x] cone
     [x] cylinder
     [x] torus 
-    [wip] frustum (from origin + view-projection)
+    [x] frustum (from inverse view-projection)
     [] arrow
 [] imgui integration
     [] show info about scene being rendered
