@@ -15,8 +15,5 @@ layout(location = 0) out vec4 out_color;
 void main()
 {
     vec4 color = texture(sampler2D(diffuse, linear_sampler_2d), frag_uv) * frag_color;
-    //color.x = pow(color.x, 2.2f);
-    //color.y = pow(color.y, 2.2f);
-    //color.z = pow(color.z, 2.2f);
 	out_color = color; 
 }
