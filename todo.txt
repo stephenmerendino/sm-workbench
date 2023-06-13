@@ -1,17 +1,4 @@
 Current todo
-[] we preload each shape primitive mesh
-    [x] cube
-    [x] axes
-    [x] tetrahedron
-    [x] uv sphere
-    [x] plane/quad
-    [x] cone
-    [x] cylinder
-    [x] torus 
-    [x] frustum (from inverse view-projection)
-    [x] custom cylinder
-    [] custom cone
-    [] arrow
 [] imgui integration
     [] show info about scene being rendered
     [] show info about resources that are loaded
@@ -20,6 +7,8 @@ Current todo
     [] Move widget
     [] Rotate widget
     [] Scale widget
+[] Add normals to all meshes
+    [] mikkt?
 [] Dot3 Lighting
     [] Directional
     [] Point
@@ -105,10 +94,17 @@ Next
 [] Integrate VMA
 
 Future big features
+[] audio support
+[] gamepad support
+[] Linux support
 [] Custom GPU Memory Allocator
 [] Deferred Renderer
 [] PBR
 [] TAA
+[] Area lights
+[] Global illumination
+[] AO
+[] Ray tracing
 [] Pathtracing
 [] Volumetrics & clouds
 [] GPU Particles
@@ -116,15 +112,19 @@ Future big features
 [] Noise Generator
 [] Forward+ Renderer
 [] SSR
-[] AO
 [] Water
 [] Terrain
-[] GI
 [] OIT
 [] Reflections
 [] Parallax Mapping
 [] Decals
-[] Area lights
 [] DX12 impl
-[] Linux support
-[] Mac support
+[] Physics support
+[] sm-ac for asset compiling to engine specific format
+[] asset database 
+    [] in charge of invoking smac on raw assets and importing them in engine specific format
+    [] in charge of checking if raw assets have been updated to auto update the imported asset
+    [] auto detect new asset added to raw_assets folder and tell UI about new assets detected
+    [] access asset db from in game menu
+    [] asset viewer screen that can show you any asset
+[] game prototyping and add new features as needed
