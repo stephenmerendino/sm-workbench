@@ -114,11 +114,12 @@ void run_app()
         // begin frame
         stopwatch_start(frame_stopwatch);
         input_begin_frame();
+        renderer_begin_frame();
 
         ////////////////////////
         game_begin_frame();
         ////////////////////////
-
+        
         // update
         window_update(app_window);
         input_update();
