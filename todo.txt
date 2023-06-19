@@ -4,8 +4,7 @@ Neovim
 Current todo
 [] imgui integration
     [x] basic integration working
-    [] show info about scene being rendered
-    [] show info about resources that are loaded
+    [] debug log (persistent / frame) 
 [] Objects can be selected with a nice highlight effect
 [] Selected objects have a working transform widget
     [] Move widget
