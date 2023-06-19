@@ -1,3 +1,6 @@
+Neovim
+[] Map leader (space) to open/close folders in nvim-tree
+
 Current todo
 [] imgui integration
     [x] basic integration working
