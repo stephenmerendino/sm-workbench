@@ -1,6 +1,7 @@
 #include "app.h"
 #include "engine/job/job_system.h"
 #include "engine/render/Camera.h"
+#include "engine/render/ui/ui_debug_log.h"
 #include "game.h"
 #include "engine/core/debug.h"
 #include "engine/core/config.h"
@@ -84,6 +85,8 @@ void sleep_remaining_frame(f32 frame_time_seconds)
 
 void run_app()
 {
+    ui_log_init();
+
     window_t* app_window = window_create("SM Workbench", WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_ALLOW_RESIZE);
     window_add_msg_callback(app_window, window_message_handler);
 
@@ -114,6 +117,7 @@ void run_app()
         // begin frame
         stopwatch_start(frame_stopwatch);
         input_begin_frame();
+        renderer_begin_frame();
 
         ////////////////////////
         game_begin_frame();
