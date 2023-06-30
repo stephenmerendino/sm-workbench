@@ -2,9 +2,6 @@ Neovim
 [] Map leader (space) to open/close folders in nvim-tree
 
 Current todo
-[] imgui integration
-    [x] basic integration working
-    [] debug log (persistent / frame) 
 [] Objects can be selected with a nice highlight effect
 [] Selected objects have a working transform widget
     [] Move widget
