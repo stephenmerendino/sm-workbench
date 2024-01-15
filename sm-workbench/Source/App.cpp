@@ -39,6 +39,7 @@ App::App()
 
 void App::Run()
 {
+	// TODO: Use SetProcessDpiAwarenessContext to make dpi awareness work per monitor
 	SetProcessDPIAware(); // make sure window is created with scaling handled
 
 	Window* appWindow = new Window();
