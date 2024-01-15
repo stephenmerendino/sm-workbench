@@ -39,7 +39,16 @@ App::App()
 
 void App::Run()
 {
+	SetProcessDPIAware(); // make sure window is created with scaling handled
+
 	Window* appWindow = new Window();
 	appWindow->Init("SM Workbench", WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_ALLOW_RESIZE);
-	//appWindow->AddMsgCallback(AppWindowMsgHandler);
+	appWindow->AddMsgCallback(AppWindowMsgHandler);
+
+	m_bIsRunning = true;
+	while (m_bIsRunning)
+	{
+		appWindow->Update();
+		::Sleep(100);
+	}
 }
