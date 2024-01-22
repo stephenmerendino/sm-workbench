@@ -46,12 +46,12 @@ void App::Run()
 	// ui_log_init()
 
 	m_pAppWindow = new Window();
-	SM_ASSERT(m_pAppWindow->Init("SM Workbench", WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_ALLOW_RESIZE));
+	m_pAppWindow->Init("SM Workbench", WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_ALLOW_RESIZE);
 	m_pAppWindow->AddMsgCallback(AppWindowMsgHandler);
 
-	SM_ASSERT(Time::Init());
-	SM_ASSERT(g_jobSystem.Init());
-	SM_ASSERT(g_inputSystem.Init(m_pAppWindow));
+	Time::Init();
+	g_jobSystem.Init();
+	g_inputSystem.Init(m_pAppWindow);
 	//SM_ASSERT(g_renderer.Init());
 
 	//camera_t scene_camera;
