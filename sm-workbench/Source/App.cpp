@@ -7,6 +7,7 @@
 #include "Engine/Input/InputSystem.h"
 #include "Engine/Job/JobSystem.h"
 #include "Engine/Platform/WindowsInclude.h"
+#include "Engine/Render/Renderer.h"
 #include "Engine/Render/Window.h"
 #include <sstream>
 
@@ -52,7 +53,7 @@ void App::Run()
 	Time::Init();
 	g_jobSystem.Init();
 	g_inputSystem.Init(m_pAppWindow);
-	//SM_ASSERT(g_renderer.Init());
+	g_renderer->Init(m_pAppWindow);
 
 	//camera_t scene_camera;
 	//scene_camera.m_world_pos = make_vec3(0.0f, 0.0f, 0.0f);
@@ -104,7 +105,7 @@ void App::Run()
 		}
 	}
 
-	//g_renderer.Shutdown();
+	g_renderer->Shutdown();
 	g_inputSystem.Shutdown();
 	g_jobSystem.Shutdown();
 	m_pAppWindow->Destroy();
