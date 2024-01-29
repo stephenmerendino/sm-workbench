@@ -7,6 +7,7 @@
 #include "Engine/Input/InputSystem.h"
 #include "Engine/Job/JobSystem.h"
 #include "Engine/Platform/WindowsInclude.h"
+#include "Engine/Render/Camera.h"
 #include "Engine/Render/Renderer.h"
 #include "Engine/Render/Window.h"
 #include <sstream>
@@ -55,10 +56,10 @@ void App::Run()
 	g_inputSystem.Init(m_pAppWindow);
 	g_renderer->Init(m_pAppWindow);
 
-	//camera_t scene_camera;
-	//scene_camera.m_world_pos = make_vec3(0.0f, 0.0f, 0.0f);
-	//camera_look_at(scene_camera, VEC3_FORWARD);
-	//renderer_set_main_camera(&scene_camera);
+	Camera sceneCamera;
+	sceneCamera.m_worldPos = Vec3::ZERO;
+	sceneCamera.LookAt(Vec3::FORWARD);
+	g_renderer->SetCamera(&sceneCamera);
 
 	Stopwatch frameStopwatch;
 	frameStopwatch.Start();
