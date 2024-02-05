@@ -2,6 +2,22 @@
 
 set deployDir=%1
 
+REM If %deployDir\RuntimeAssets\ does not exist, then create it
+
+REM Copy RawAssets\Textures\ to %deployDir\RuntimeAssets\Textures\
+
+REM Copy RawAssets\Models\ to %deployDir\RuntimeAssets\Models\
+
+REM Compile all .vert and .frag files to .spv files then copy them to %deployDir\RuntimeAssets\CompiledShaders\
+
+
+
+
+
+
+REM *******************
+REM OLD
+
 REM @echo on
 REM echo %1
 
