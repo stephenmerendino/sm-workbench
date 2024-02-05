@@ -72,19 +72,27 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IntDir>$(SolutionDir)Build\$(PlatformTarget)_$(Configuration)\$(ProjectName)_Intermediate\</IntDir>
-    <OutDir>$(SolutionDir)Build\$(PlatformTarget)_$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)Run\$(PlatformTarget)\</OutDir>
+    <TargetName>$(ProjectName)_$(PlatformTarget)_$(Configuration)</TargetName>
+    <CustomBuildAfterTargets>Build</CustomBuildAfterTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IntDir>$(SolutionDir)Build\$(PlatformTarget)_$(Configuration)\$(ProjectName)_Intermediate\</IntDir>
-    <OutDir>$(SolutionDir)Build\$(PlatformTarget)_$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)Run\$(PlatformTarget)\</OutDir>
+    <TargetName>$(ProjectName)_$(PlatformTarget)_$(Configuration)</TargetName>
+    <CustomBuildAfterTargets>Build</CustomBuildAfterTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IntDir>$(SolutionDir)Build\$(PlatformTarget)_$(Configuration)\$(ProjectName)_Intermediate\</IntDir>
-    <OutDir>$(SolutionDir)Build\$(PlatformTarget)_$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)Run\$(PlatformTarget)\</OutDir>
+    <TargetName>$(ProjectName)_$(PlatformTarget)_$(Configuration)</TargetName>
+    <CustomBuildAfterTargets>Build</CustomBuildAfterTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IntDir>$(SolutionDir)Build\$(PlatformTarget)_$(Configuration)\$(ProjectName)_Intermediate\</IntDir>
-    <OutDir>$(SolutionDir)Build\$(PlatformTarget)_$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)Run\$(PlatformTarget)\</OutDir>
+    <TargetName>$(ProjectName)_$(PlatformTarget)_$(Configuration)</TargetName>
+    <CustomBuildAfterTargets>Build</CustomBuildAfterTargets>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -98,6 +106,20 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <CustomBuildStep>
+      <Command>call $(SolutionDir)RawAssets\BuildAndDeployAssets.bat $(OutputPath)</Command>
+      <Message>Building And Deploying Assets</Message>
+      <TreatOutputAsContent>false</TreatOutputAsContent>
+      <Outputs>FakeOutputSoBuildStepAlwaysRuns</Outputs>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -115,6 +137,20 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <CustomBuildStep>
+      <Command>call $(SolutionDir)RawAssets\BuildAndDeployAssets.bat $(OutputPath)</Command>
+      <Message>Building And Deploying Assets</Message>
+      <TreatOutputAsContent>false</TreatOutputAsContent>
+      <Outputs>FakeOutputSoBuildStepAlwaysRuns</Outputs>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -128,6 +164,20 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <CustomBuildStep>
+      <Command>call $(SolutionDir)RawAssets\BuildAndDeployAssets.bat $(OutputPath)</Command>
+      <Message>Building And Deploying Assets</Message>
+      <TreatOutputAsContent>false</TreatOutputAsContent>
+      <Outputs>FakeOutputSoBuildStepAlwaysRuns</Outputs>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -145,6 +195,20 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
+    <CustomBuildStep>
+      <Command>call $(SolutionDir)RawAssets\BuildAndDeployAssets.bat $(OutputPath)</Command>
+      <Message>Building And Deploying Assets</Message>
+      <TreatOutputAsContent>false</TreatOutputAsContent>
+      <Outputs>FakeOutputSoBuildStepAlwaysRuns</Outputs>
+    </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\sm-engine\sm-engine\sm-engine.vcxproj">
