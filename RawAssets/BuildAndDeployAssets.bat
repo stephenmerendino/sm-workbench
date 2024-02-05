@@ -1,10 +1,15 @@
 @echo off
 
-set deployDir=%1
+set rawAssetDir=%1
+set deployDir=%2
+set outputAssetDir=%deployDir%\RuntimeAssets\
 
 REM If %deployDir\RuntimeAssets\ does not exist, then create it
+if not exist %outputAssetDir% mkdir %outputAssetDir%
 
 REM Copy RawAssets\Textures\ to %deployDir\RuntimeAssets\Textures\
+if not exist %outputAssetDir%\Textures\ mkdir %outputAssetDir%\Textures\
+copy %rawAssetDir%Textures\ %outputAssetDir%Textures\ /y /d
 
 REM Copy RawAssets\Models\ to %deployDir\RuntimeAssets\Models\
 
