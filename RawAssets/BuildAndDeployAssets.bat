@@ -19,23 +19,10 @@ xcopy %rawAssetDir%Models\ %outputAssetDir%Models\ /s /d
 
 REM Compile all .vert and .frag files to .spv files then copy them to %deployDir\RuntimeAssets\CompiledShaders\
 echo Compiling shaders
-
-
-
-
-
-REM *******************
-REM OLD
-
-REM @echo on
-REM echo %1
-
-REM set projectPath=%~dp0..
-REM set shaderPath=%projectPath%\assets\shaders
-REM 
-REM glslc %shaderPath%\tri.vert -o %shaderPath%\tri-vert.spv
-REM glslc %shaderPath%\tri.frag -o %shaderPath%\tri-frag.spv
-REM glslc %shaderPath%\simple-color.vert -o %shaderPath%\simple-color-vert.spv
-REM glslc %shaderPath%\simple-color.frag -o %shaderPath%\simple-color-frag.spv
-REM glslc %shaderPath%\pass-through.vert -o %shaderPath%\pass-through-vert.spv
-REM glslc %shaderPath%\post-process.frag -o %shaderPath%\post-process-frag.spv
+if not exist %outputAssetDir%\CompiledShaders\ mkdir %outputAssetDir%\CompiledShaders\
+pushd %rawAssetDir%Shaders\
+for /r %%f in (*) do (
+	echo     Compiling %%~nf%%~xf
+	glslc %%f -o %outputAssetDir%CompiledShaders\%%~nf%%~xf.spv
+)
+popd
