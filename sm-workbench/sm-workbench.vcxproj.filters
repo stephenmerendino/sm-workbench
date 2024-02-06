@@ -4,6 +4,9 @@
     <Filter Include="Source">
       <UniqueIdentifier>{b8f673a3-c841-44aa-8933-9e4233084f4a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{74be2e15-653b-4214-a6f0-5ed617fa4c56}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\MainWin32.cpp">
@@ -20,5 +23,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\RawAssets\BuildAndDeployAssets.bat" />
+    <None Include="..\RawAssets\Shaders\pass-through.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\RawAssets\Shaders\post-process.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\RawAssets\Shaders\simple-color.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\RawAssets\Shaders\simple-color.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\RawAssets\Shaders\tri.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\RawAssets\Shaders\tri.vert">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>
