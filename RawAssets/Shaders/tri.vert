@@ -1,7 +1,7 @@
 #version 450
 #extension GL_ARB_separate_shader_objects : enable
 
-// mesh instance descriptors
+// frame descriptors
 layout(set = 1, binding = 0, row_major) uniform FrameRenderData 
 {
     float time;

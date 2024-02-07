@@ -68,27 +68,16 @@ void App::Run()
 	m_bIsRunning = true;
 	while (m_bIsRunning)
 	{
-		// begin frame
+		// Begin frame
 		g_inputSystem.BeginFrame();
-		//g_renderer.BeginFrame();
 
-		//////////////////////////
-		//game_begin_frame();
-		//////////////////////////
-
-		// update
+		// Update
 		m_pAppWindow->Update();
 		g_inputSystem.Update();
-		//camera_update(scene_camera, ds);
-		//renderer_update(ds);
+		sceneCamera.Update(ds);
 
-		//////////////////////////
-		//game_update(ds);
-		//game_render();
-		//////////////////////////
-
-		//// render
-		//renderer_render_frame();
+		// Render
+		g_renderer->RenderFrame();
 
 		// End Frame
 		F32 workTimeSeconds = frameStopwatch.GetElapsedSeconds();
