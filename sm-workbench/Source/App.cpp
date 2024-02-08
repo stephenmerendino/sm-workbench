@@ -77,7 +77,7 @@ void App::Run()
 		sceneCamera.Update(ds);
 
 		// Render
-		g_renderer->RenderFrame();
+		g_renderer->Render();
 
 		// End Frame
 		F32 workTimeSeconds = frameStopwatch.GetElapsedSeconds();
