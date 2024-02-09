@@ -228,8 +228,8 @@
     <None Include="..\RawAssets\Shaders\post-process.frag" />
     <None Include="..\RawAssets\Shaders\simple-color.frag" />
     <None Include="..\RawAssets\Shaders\simple-color.vert" />
-    <None Include="..\RawAssets\Shaders\tri.frag" />
-    <None Include="..\RawAssets\Shaders\tri.vert" />
+    <None Include="..\RawAssets\Shaders\simple-diffuse.frag" />
+    <None Include="..\RawAssets\Shaders\simple-diffuse.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
