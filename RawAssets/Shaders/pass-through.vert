@@ -4,20 +4,20 @@
 // frame descriptor
 layout(set = 1, binding = 0, row_major) uniform FrameRenderData 
 {
-    float time;
-	float delta_time_seconds;
-} frame_render_data;
+    float m_elapsedTimeSeconds;
+	float m_deltaTimeSeconds;
+} frameRenderData;
 
-layout(location = 0) in vec3 in_pos;
-layout(location = 1) in vec4 in_color;
-layout(location = 2) in vec2 in_uv;
+layout(location = 0) in vec3 inPos;
+layout(location = 1) in vec4 inColor;
+layout(location = 2) in vec2 inUv;
 
-layout(location = 0) out vec4 frag_color;
-layout(location = 1) out vec2 frag_uv;
+layout(location = 0) out vec4 fragColor;
+layout(location = 1) out vec2 fragUv;
 
 void main()
 {
-	gl_Position = vec4(in_pos, 1.0f);
-	frag_color = in_color;
-	frag_uv = in_uv;
+	gl_Position = vec4(inPos, 1.0f);
+	fragColor = inColor;
+	fragUv = inUv;
 }

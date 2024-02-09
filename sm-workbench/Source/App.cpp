@@ -75,6 +75,7 @@ void App::Run()
 		m_pAppWindow->Update();
 		g_inputSystem.Update();
 		sceneCamera.Update(ds);
+		g_renderer->Update(ds);
 
 		// Render
 		g_renderer->Render();
@@ -114,7 +115,7 @@ void App::ReportFps(F32 ds)
 		F32 avgCurrentFps = (F32)s_frameCount / s_frameTimeAccrual;
 
 		std::ostringstream ss;
-		ss << "sm workbench" << " - fps: " << avgCurrentFps	 << " - frame time ms: " << ds * 1000.0f;
+		ss << "SM Workbench" << " - FPS: " << avgCurrentFps	 << " - Frame Time(ms): " << ds * 1000.0f;
 		std::string newTitle = ss.str();
 		m_pAppWindow->SetTitle(newTitle.c_str());
 
@@ -125,14 +126,14 @@ void App::ReportFps(F32 ds)
 
 void App::SleepRemainingFrame(F32 ds)
 {
-	const F32 targetSecondsPerFrame = (1.0f / TARGET_FPS);
+	const F32 maxSecondsPerFrame = (1.0f / MAX_FPS);
 
-	// frame took longer than our target time
-	if (ds >= targetSecondsPerFrame)
+	// frame took longer than our max time
+	if (ds >= maxSecondsPerFrame)
 	{
 		return;
 	}
 
-	F32 timeToSleepSeconds = targetSecondsPerFrame - ds;
+	F32 timeToSleepSeconds = maxSecondsPerFrame - ds;
 	Thread::SleepSeconds(timeToSleepSeconds);
 }
