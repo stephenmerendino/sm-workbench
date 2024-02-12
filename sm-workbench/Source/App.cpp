@@ -10,6 +10,7 @@
 #include "Engine/Render/Camera.h"
 #include "Engine/Render/Renderer.h"
 #include "Engine/Render/Window.h"
+#include "Engine/Render/UI/UI.h"
 #include <sstream>
 
 App g_app;
@@ -45,7 +46,7 @@ void App::Run()
 	// TODO: Move this to Window class?
 	SetProcessDPIAware(); // make sure window is created with scaling handled
 
-	// ui_log_init()
+	UI::Init();
 
 	m_pAppWindow = new Window();
 	m_pAppWindow->Init("SM Workbench", WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_ALLOW_RESIZE);
