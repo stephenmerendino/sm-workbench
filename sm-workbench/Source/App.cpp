@@ -42,10 +42,6 @@ App::App()
 
 void App::Run()
 {
-	// TODO: Use SetProcessDpiAwarenessContext to make dpi awareness work per monitor
-	// TODO: Move this to Window class?
-	SetProcessDPIAware(); // make sure window is created with scaling handled
-
 	UI::Init();
 
 	m_pAppWindow = new Window();
@@ -58,8 +54,8 @@ void App::Run()
 	g_renderer->Init(m_pAppWindow);
 
 	Camera sceneCamera;
-	sceneCamera.m_worldPos = Vec3::ZERO;
-	sceneCamera.LookAt(Vec3::FORWARD);
+	sceneCamera.m_worldPos = Vec3(3.0f, 3.0f, 3.0f);
+	sceneCamera.LookAt(Vec3::ZERO);
 	g_renderer->SetCamera(&sceneCamera);
 
 	Stopwatch frameStopwatch;
