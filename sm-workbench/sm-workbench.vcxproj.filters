@@ -42,4 +42,7 @@
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\Todo.txt" />
+  </ItemGroup>
 </Project>

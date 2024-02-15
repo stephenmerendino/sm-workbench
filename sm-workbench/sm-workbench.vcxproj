@@ -231,6 +231,9 @@
     <None Include="..\RawAssets\Shaders\simple-diffuse.frag" />
     <None Include="..\RawAssets\Shaders\simple-diffuse.vert" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\Todo.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -1,0 +1,9 @@
+-Info window
+	Camera position
+	Resolution
+-Render Settings Window
+	Enable/Disable world axes
+-Hide UI button on bar
+-Working gizmo
+-Meshes are selectable
+-Meshes have highlight when selected
