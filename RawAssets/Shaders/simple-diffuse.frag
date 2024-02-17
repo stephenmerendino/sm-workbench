@@ -15,5 +15,6 @@ layout(location = 0) out vec4 outColor;
 void main()
 {
     vec4 color = texture(sampler2D(diffuse, linearSampler2d), fragUv) * fragColor;
+	color.xyz = pow(color.xyz, vec3(1.0f / 2.2f));
 	outColor = color; 
 }
