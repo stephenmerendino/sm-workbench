@@ -31,9 +31,11 @@ vec4 GetLineColor(vec3 intersectPos)
 	float wholeNumberLineValue = min(wholeNumberLineX, wholeNumberLineY);
 	if(wholeNumberLineValue < g_lineWholeNumberThickness)
 	{
-        //float fadeout = clamp(1.0f - abs((wholeNumberLineValue - g_lineWholeNumberFullColor) / (g_lineWholeNumberThickness - g_lineWholeNumberFullColor)), 0.0f, 1.0f);
 		vec4 lineColor = vec4(g_lineWholeNumberColor, g_lineWholeNumberColor, g_lineWholeNumberColor, 1.0f);
-		//lineColor.xyz *= fadeout;
+
+		float fadeout = clamp(wholeNumberLineValue - g_lineWholeNumberFullColor, 0.0f, 1.0f) / (g_lineWholeNumberThickness - g_lineWholeNumberFullColor);
+
+        //float fadeout = clamp(1.0f - abs((wholeNumberLineValue - g_lineWholeNumberFullColor) / (g_lineWholeNumberThickness - g_lineWholeNumberFullColor)), 0.0f, 1.0f);
 
 		if(intersectPos.x > 0 && intersectPos.y > 0 && intersectPos.y < g_lineWholeNumberThickness)
 		{
@@ -43,6 +45,8 @@ vec4 GetLineColor(vec3 intersectPos)
 		{
             lineColor = vec4(0.0f, 1.0f, 0.0f, 1.0f);
 		}
+
+		lineColor.xyz *= fadeout;
 
 		return lineColor;
 	}
