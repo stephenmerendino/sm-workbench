@@ -35,11 +35,11 @@ vec4 GetLineColor(vec3 intersectPos)
 		vec4 lineColor = vec4(g_lineWholeNumberColor, g_lineWholeNumberColor, g_lineWholeNumberColor, 1.0f);
 		//lineColor.xyz *= fadeout;
 
-		if(intersectPos.x > 0 && intersectPos.y >= 0 && intersectPos.x < g_lineWholeNumberThickness)
+		if(intersectPos.x > 0 && intersectPos.y > 0 && intersectPos.y < g_lineWholeNumberThickness)
 		{
             lineColor = vec4(1.0f, 0.0f, 0.0f, 1.0f);
 		}
-		if(intersectPos.x > 0 && intersectPos.y >= 0 && intersectPos.y < g_lineWholeNumberThickness)
+		if(intersectPos.x > 0 && intersectPos.y > 0 && intersectPos.x < g_lineWholeNumberThickness)
 		{
             lineColor = vec4(0.0f, 1.0f, 0.0f, 1.0f);
 		}
