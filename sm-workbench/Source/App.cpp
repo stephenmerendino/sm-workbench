@@ -44,6 +44,9 @@ void App::Run()
 {
 	UI::Init();
 
+	F32 test = -2.18f;
+	F32 test2 = fmodf(test, 0.20f);
+
 	m_pAppWindow = new Window();
 	m_pAppWindow->Init("SM Workbench", WINDOW_WIDTH, WINDOW_HEIGHT, WINDOW_ALLOW_RESIZE);
 	m_pAppWindow->AddMsgCallback(AppWindowMsgHandler);

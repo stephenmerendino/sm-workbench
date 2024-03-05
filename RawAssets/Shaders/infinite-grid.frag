@@ -11,57 +11,93 @@ float g_lineWholeNumberFullColor = 0.01f;
 
 float g_fractionLines = 0.20f;
 float g_lineFractionalNumberThickness = 0.01f;
-float g_lineFractionalNumberFullColor = 0.05f;
+float g_lineFractionalNumberFullColor = 0.005f;
 
 float g_lineWholeNumberColor = 0.35f;
 float g_lineFractionalNumberColor = 0.25f;
 
-bool IsCloseEnough(float value)
+float GetDistanceFromThickLine(vec3 pos)
 {
-	if(mod(value, 1.0f) <= g_lineWholeNumberThickness) return true;
-	//if(mod(value, g_fractionLines) <= g_lineFractionalNumberThickness) return true;
+	float xDist = min(fract(pos.x), 1.0f - fract(pos.x)); 
+	float yDist = min(fract(pos.y), 1.0f - fract(pos.y)); 
+	return min(xDist, yDist);
+}
+
+float GetDistanceFromThinLine(vec3 pos)
+{
+    return 0.0f;
+}
+
+bool IsMainAxis(float coordinateValue)
+{
+	return (coordinateValue <= g_lineWholeNumberThickness) && (coordinateValue >= -g_lineWholeNumberThickness);
+}
+
+bool IsThickLine(vec3 pos)
+{
+	if( fract(pos.x) <= g_lineWholeNumberThickness || 1.0f - fract(pos.x) <= g_lineWholeNumberThickness) return true;
+	if( fract(pos.y) <= g_lineWholeNumberThickness || 1.0f - fract(pos.y) <= g_lineWholeNumberThickness) return true;
 	return false;
 }
 
-vec4 GetLineColor(vec3 intersectPos)
+bool IsWithinRangeOfMod(float testValue, float modValue, float range)
 {
-	float wholeNumberLineX = mod(intersectPos.x, 1.0f);
-	float wholeNumberLineY = mod(intersectPos.y, 1.0f);
+	float remainder = abs(modf(testValue, modValue));
+	return (remainder <= range) && ((remainder - modValue) >= range);
+}
 
-	float wholeNumberLineValue = min(wholeNumberLineX, wholeNumberLineY);
-	if(wholeNumberLineValue < g_lineWholeNumberThickness)
+bool IsThinLine(vec3 pos)
+{
+	if(IsWithinRangeOfMod(pos.x, g_fractionLines, g_lineFractionalNumberThickness)) return true;
+	if(IsWithinRangeOfMod(pos.y, g_fractionLines, g_lineFractionalNumberThickness)) return true;
+	return false;
+}
+
+bool IsPositionOnGrid(vec3 pos)
+{
+	if( fract(pos.x) <= g_lineWholeNumberThickness || 1.0f - fract(pos.x) <= g_lineWholeNumberThickness) return true;
+	if( fract(pos.y) <= g_lineWholeNumberThickness || 1.0f - fract(pos.y) <= g_lineWholeNumberThickness) return true;
+	if(IsThinLine(pos)) return true;
+	//if( fract(pos.x) <= g_lineFractionalNumberThickness || 1.0f - fract(pos.x) <= g_lineFractionalNumberThickness) return true;
+	//if( fract(pos.y) <= g_lineFractionalNumberThickness || 1.0f - fract(pos.y) <= g_lineFractionalNumberThickness) return true;
+	return false;
+}
+
+bool GetLineColor(vec3 intersectPos, out vec4 color)
+{
+    if(!IsPositionOnGrid(intersectPos))
+    {
+        return false;
+    }
+
+	color = vec4(1.0f, 0.0f, 1.0f, 1.0f);
+
+	if(IsMainAxis(intersectPos.x) && intersectPos.y >= g_lineWholeNumberThickness)
 	{
-		vec4 lineColor = vec4(g_lineWholeNumberColor, g_lineWholeNumberColor, g_lineWholeNumberColor, 1.0f);
-
-		//float fadeout = clamp(wholeNumberLineValue - g_lineWholeNumberFullColor, 0.0f, 1.0f) / (g_lineWholeNumberThickness - g_lineWholeNumberFullColor);
-		float fadeout = wholeNumberLineValue / g_lineWholeNumberThickness;
-
-        //float fadeout = clamp(1.0f - abs((wholeNumberLineValue - g_lineWholeNumberFullColor) / (g_lineWholeNumberThickness - g_lineWholeNumberFullColor)), 0.0f, 1.0f);
-
-		if(intersectPos.x > 0 && intersectPos.y > 0 && intersectPos.y < g_lineWholeNumberThickness)
-		{
-            lineColor = vec4(1.0f, 0.0f, 0.0f, 1.0f);
-		}
-		if(intersectPos.x > 0 && intersectPos.y > 0 && intersectPos.x < g_lineWholeNumberThickness)
-		{
-            lineColor = vec4(0.0f, 1.0f, 0.0f, 1.0f);
-		}
-
-		lineColor.xyz *= fadeout;
-
-		return lineColor;
+		color = vec4(0.0f, 1.0f, 0.0f, 1.0f);
+		return true;
 	}
 
-	//float fractionalNumberLineX = mod(intersectPos.x, g_fractionLines);
-	//float fractionalNumberLineY = mod(intersectPos.y, g_fractionLines);
+	if(IsMainAxis(intersectPos.y) && intersectPos.x >= g_lineWholeNumberThickness)
+	{
+		color = vec4(1.0f, 0.0f, 0.0f, 1.0f);
+		return true;
+	}
 
-	//float fractionalNumberLineValue = min(fractionalNumberLineX, fractionalNumberLineY);
-	//if(fractionalNumberLineValue < g_lineFractionalNumberThickness)
-	//{
-    //    return vec4(g_lineFractionalNumberColor, g_lineFractionalNumberColor, g_lineFractionalNumberColor, 1.0f);
-	//}
+	if(IsThickLine(intersectPos))
+	{
+        color = vec4(g_lineWholeNumberColor, g_lineWholeNumberColor, g_lineWholeNumberColor, 1.0f);
+		return true;
+	}
 
-	return vec4(1.0f, 0.0f, 1.0f, 1.0f);
+	if(IsThinLine(intersectPos))
+	{
+        //color = vec4(g_lineFractionalNumberColor, g_lineFractionalNumberColor, g_lineFractionalNumberColor, 1.0f);
+        color = vec4(1.0f, 0.0f, 1.0f, 1.0f);
+		return true;
+	}
+
+	return true;
 }
 
 void main()
@@ -70,12 +106,10 @@ void main()
 	if(t > 0)
 	{
         vec3 intersectPos = worldPosNear.xyz + (t * (worldPosFar.xyz - worldPosNear.xyz));
-		if(!IsCloseEnough(intersectPos.x) && !IsCloseEnough(intersectPos.y))
+		if(!GetLineColor(intersectPos, outColor))
 		{
             discard;
 		}
-
-        outColor = GetLineColor(intersectPos);
 	}
 	else
 	{
