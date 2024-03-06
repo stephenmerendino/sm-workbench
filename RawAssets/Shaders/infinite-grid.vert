@@ -9,12 +9,12 @@ layout(set = 0, binding = 0, row_major) uniform InfiniteGridData
 
 vec4 g_ndcPositions[6] = 
 { 
-	vec4(-1.0f, -1.0f, 0.0f, 1.0f),
-	vec4(-1.0f, 1.0f, 0.0f, 1.0f),
-	vec4(1.0f, 1.0f, 0.0f, 1.0f),
-	vec4(-1.0f, -1.0f, 0.0f, 1.0f),
-	vec4(1.0f, 1.0f, 0.0f, 1.0f),
-	vec4(1.0f, -1.0f, 0.0f, 1.0f)
+	vec4(-1.0f, -1.0f, 0.5f, 1.0f),
+	vec4(-1.0f, 1.0f, 0.5f, 1.0f),
+	vec4(1.0f, 1.0f, 0.5f, 1.0f),
+	vec4(-1.0f, -1.0f, 0.5f, 1.0f),
+	vec4(1.0f, 1.0f, 0.5f, 1.0f),
+	vec4(1.0f, -1.0f, 0.5f, 1.0f)
 };
 
 layout(location = 0) out vec4 worldPosNear;

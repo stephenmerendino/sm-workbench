@@ -1,6 +1,12 @@
 #version 450
 #extension GL_ARB_separate_shader_objects : enable
 
+layout(set = 0, binding = 0, row_major) uniform InfiniteGridData
+{
+	mat4x4 m_viewProjection;
+	mat4x4 m_inverseViewProjection;
+} infiniteGridData;
+
 layout(location = 0) in vec4 worldPosNear;
 layout(location = 1) in vec4 worldPosFar;
 
@@ -121,7 +127,11 @@ void main()
 		{
             discard;
 		}
-	}
+
+        vec4 homogenousPos = vec4(intersectPos, 1.0f) * infiniteGridData.m_viewProjection;
+        vec4 ndcPos = homogenousPos / homogenousPos.w;
+        gl_FragDepth = ndcPos.z;
+    }
 	else
 	{
         discard;
