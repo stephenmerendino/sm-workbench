@@ -7,12 +7,12 @@ layout(location = 1) in vec4 worldPosFar;
 layout(location = 0) out vec4 outColor;
 
 float g_bigLineFrequency = 1.0f;
-float g_bigLineThickness = 0.1f;
+float g_bigLineThickness = 0.01f;
 float g_bigLineFalloffStart = 0.00f;
 float g_bigLineColor = 0.35f;
 
 float g_smallLineFrequency = 0.2f;
-float g_smallLineThickness = 0.05f;
+float g_smallLineThickness = 0.005f;
 float g_smallLineFalloffStart = 0.00f;
 float g_smallLineColor = 0.25f;
 
@@ -77,13 +77,17 @@ bool GetLineColor(vec3 intersectPos, out vec4 color)
 
 	if(IsMainAxis(intersectPos.x) && intersectPos.y >= g_bigLineThickness)
 	{
+        float fadeout = GetFadeout(intersectPos, g_bigLineFrequency, g_bigLineThickness, g_bigLineFalloffStart);
 		color = vec4(0.0f, 1.0f, 0.0f, 1.0f);
+        color.xyz *= vec3(fadeout, fadeout, fadeout);
 		return true;
 	}
 
 	if(IsMainAxis(intersectPos.y) && intersectPos.x >= g_bigLineThickness)
 	{
+        float fadeout = GetFadeout(intersectPos, g_bigLineFrequency, g_bigLineThickness, g_bigLineFalloffStart);
 		color = vec4(1.0f, 0.0f, 0.0f, 1.0f);
+        color.xyz *= vec3(fadeout, fadeout, fadeout);
 		return true;
 	}
 
