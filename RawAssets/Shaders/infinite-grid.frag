@@ -39,6 +39,7 @@ float GetFadeout(vec3 position, float gridModValue, float lineThickness, float f
 
     float fadeout = 1.0f;
     fadeout = (smallestRemainder - falloffStart) / (lineThickness - falloffStart);
+    fadeout *= fadeout;
     return 1.0f - fadeout;
 }
 
@@ -79,7 +80,7 @@ bool GetLineColor(vec3 intersectPos, out vec4 color)
 	{
         float fadeout = GetFadeout(intersectPos, g_bigLineFrequency, g_bigLineThickness, g_bigLineFalloffStart);
 		color = vec4(0.0f, 1.0f, 0.0f, 1.0f);
-        color.xyz *= vec3(fadeout, fadeout, fadeout);
+        color.a = fadeout;
 		return true;
 	}
 
@@ -87,7 +88,7 @@ bool GetLineColor(vec3 intersectPos, out vec4 color)
 	{
         float fadeout = GetFadeout(intersectPos, g_bigLineFrequency, g_bigLineThickness, g_bigLineFalloffStart);
 		color = vec4(1.0f, 0.0f, 0.0f, 1.0f);
-        color.xyz *= vec3(fadeout, fadeout, fadeout);
+        color.a = fadeout;
 		return true;
 	}
 
@@ -95,7 +96,7 @@ bool GetLineColor(vec3 intersectPos, out vec4 color)
 	{
         float fadeout = GetFadeout(intersectPos, g_bigLineFrequency, g_bigLineThickness, g_bigLineFalloffStart);
         color = vec4(g_bigLineColor, g_bigLineColor, g_bigLineColor, 1.0f);
-        color.xyz *= vec3(fadeout, fadeout, fadeout);
+        color.a = fadeout;
 		return true;
 	}
 
@@ -103,7 +104,7 @@ bool GetLineColor(vec3 intersectPos, out vec4 color)
 	{
         float fadeout = GetFadeout(intersectPos, g_smallLineFrequency, g_smallLineThickness, g_smallLineFalloffStart);
         color = vec4(g_smallLineColor, g_smallLineColor, g_smallLineColor, 1.0f);
-        color.xyz *= vec3(fadeout, fadeout, fadeout);
+        color.a = fadeout;
 		return true;
 	}
 
