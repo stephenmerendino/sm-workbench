@@ -13,14 +13,16 @@ layout(location = 1) in vec4 worldPosFar;
 layout(location = 0) out vec4 outColor;
 
 float g_bigLineFrequency = 1.0f;
-float g_bigLineThickness = 0.01f;
+float g_bigLineThickness = 0.0125f;
 float g_bigLineFalloffStart = 0.00f;
 float g_bigLineColor = 0.35f;
 
 float g_smallLineFrequency = 0.2f;
-float g_smallLineThickness = 0.005f;
+float g_smallLineThickness = 0.0075f;
 float g_smallLineFalloffStart = 0.00f;
 float g_smallLineColor = 0.25f;
+
+float g_depthFadeDistance = 0.9975f;
 
 bool IsWithinRangeOfMod(float testValue, float modValue, float range)
 {
@@ -130,6 +132,9 @@ void main()
 
         vec4 homogenousPos = vec4(intersectPos, 1.0f) * infiniteGridData.m_viewProjection;
         vec4 ndcPos = homogenousPos / homogenousPos.w;
+
+        outColor.a *= 1.0f - (max(ndcPos.z - g_depthFadeDistance, 0.0f) / (1.0f - g_depthFadeDistance));
+		
         gl_FragDepth = ndcPos.z;
     }
 	else
