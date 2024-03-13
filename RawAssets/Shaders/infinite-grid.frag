@@ -77,7 +77,7 @@ bool IsPositionOnGrid(vec3 pos)
 
 bool GetLineColor(vec3 intersectPos, out vec4 color)
 {
-/**/
+/*/
     float scale = 1.0f;
     vec2 coord = intersectPos.xy * scale; // use the scale variable to set the distance between the lines
 
