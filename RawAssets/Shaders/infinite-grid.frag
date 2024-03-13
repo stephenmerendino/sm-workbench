@@ -77,6 +77,31 @@ bool IsPositionOnGrid(vec3 pos)
 
 bool GetLineColor(vec3 intersectPos, out vec4 color)
 {
+/**/
+    float scale = 1.0f;
+    vec2 coord = intersectPos.xy * scale; // use the scale variable to set the distance between the lines
+
+    // sum of absolute values of ddx and ddy of world space position
+    // how much is world position changing in x and y coordinates from pixel to pixel
+    vec2 derivative = fwidth(coord);
+
+    // 
+    vec2 grid = abs(fract(coord - 0.5) - 0.5) / derivative;
+
+    float line = min(grid.x, grid.y);
+
+    float minimumy = min(derivative.y, 1);
+    float minimumx = min(derivative.x, 1);
+
+    color = vec4(g_bigLineColor, g_bigLineColor, g_bigLineColor, 1.0 - min(line, 1.0));
+    // z axis
+    if (intersectPos.x > -0.1 * minimumx && intersectPos.x < 0.1 * minimumx)
+        color.z = 1.0;
+    // x axis
+    if (intersectPos.y > -0.1 * minimumy && intersectPos.y < 0.1 * minimumy)
+        color.g = 1.0;
+    return true;
+/*/
     if(!IsPositionOnGrid(intersectPos))
     {
         return false;
@@ -117,6 +142,7 @@ bool GetLineColor(vec3 intersectPos, out vec4 color)
 	}
 
 	return true;
+/**/
 }
 
 void main()
