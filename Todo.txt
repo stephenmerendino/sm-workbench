@@ -1,6 +1,6 @@
 [x] Infinite Grid
 [x] Vulkan debug markers (https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_debug_marker.html)
-[] Info window
+[x] Info window
 	Camera position
 	Current Resolution
 [] Render Settings Window
