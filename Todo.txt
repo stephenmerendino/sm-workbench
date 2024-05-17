@@ -3,9 +3,10 @@
 [x] Info window
 	Camera position
 	Current Resolution
-[] Render Settings Window
+[x] Render Settings Window
 	Enable/Disable grid, grid fade distance, line thicknesses
-[] Hide UI button on bar
+[x] Hide UI button on bar
+[] Transition shaders from glsl to hlsl
 [] Hot Reload Shaders
 	-Big task, will need to integrate shader compiler into codebase
 [] Compute shader post processing
