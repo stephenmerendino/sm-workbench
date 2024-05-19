@@ -1,14 +1,17 @@
 [x] Infinite Grid
 [x] Vulkan debug markers (https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_debug_marker.html)
 [x] Info window
-	Camera position
-	Current Resolution
+	[x] Camera position
+	[x] Current Resolution
 [x] Render Settings Window
-	Enable/Disable grid, grid fade distance, line thicknesses
+	[x] Enable/Disable grid
+	[x] Grid fade distance
+	[x] Line thicknesses
 [x] Hide UI button on bar
-[] Transition shaders from glsl to hlsl
-[] Hot Reload Shaders
-	-Big task, will need to integrate shader compiler into codebase
+[] Convert shaders to hlsl
+[] Incorporate DXC into build process
+[] Runtime HLSL compilation into SPIR-V
+	[] How reload shaders
 [] Compute shader post processing
 	[] Put in between main draw and imgui
 	[] Do manual gamma correction (https://registry.khronos.org/DataFormat/specs/1.3/dataformat.1.3.html#TRANSFER_SRGB)

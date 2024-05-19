@@ -1,4 +1,4 @@
-@echo off
+@echo on
 
 set rawAssetDir=%1
 set deployDir=%2
@@ -21,8 +21,10 @@ REM Compile all .vert and .frag files to .spv files then copy them to %deployDir
 echo Compiling shaders
 if not exist %outputAssetDir%\CompiledShaders\ mkdir %outputAssetDir%\CompiledShaders\
 pushd %rawAssetDir%Shaders\
-for /r %%f in (*) do (
-	echo     Compiling %%~nf%%~xf
-	glslc %%f -o %outputAssetDir%CompiledShaders\%%~nf%%~xf.spv
-)
+
+C:\VulkanSDK\1.3.268.0\Bin\dxc -spirv -T vs_6_6 -E Main .\infinite-grid.vert -Fo %outputAssetDir%CompiledShaders\infinite-grid.vert.spv -Zi
+C:\VulkanSDK\1.3.268.0\Bin\dxc -spirv -T ps_6_6 -E Main .\infinite-grid.frag -Fo %outputAssetDir%CompiledShaders\infinite-grid.frag.spv -Zi
+C:\VulkanSDK\1.3.268.0\Bin\dxc -spirv -T vs_6_6 -E Main .\simple-diffuse.vert -Fo %outputAssetDir%CompiledShaders\simple-diffuse.vert.spv -Zi
+C:\VulkanSDK\1.3.268.0\Bin\dxc -spirv -T ps_6_6 -E Main .\simple-diffuse.frag -Fo %outputAssetDir%CompiledShaders\simple-diffuse.frag.spv -Zi
+
 popd
