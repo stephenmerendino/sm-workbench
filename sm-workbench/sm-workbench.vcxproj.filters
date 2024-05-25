@@ -22,33 +22,20 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\RawAssets\BuildAndDeployAssets.bat" />
-    <None Include="..\RawAssets\Shaders\pass-through.vert">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="..\RawAssets\Shaders\post-process.frag">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="..\RawAssets\Shaders\simple-color.frag">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="..\RawAssets\Shaders\simple-color.vert">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="..\RawAssets\Shaders\simple-diffuse.vert">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="..\RawAssets\Shaders\simple-diffuse.frag">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="..\RawAssets\Shaders\infinite-grid.vert">
-      <Filter>Shaders</Filter>
-    </None>
-    <None Include="..\RawAssets\Shaders\infinite-grid.frag">
-      <Filter>Shaders</Filter>
-    </None>
+    <Text Include="..\Todo.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\Todo.txt" />
+    <None Include="..\Assets\Shaders\infinite-grid.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Assets\Shaders\infinite-grid.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Assets\Shaders\simple-diffuse.frag">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="..\Assets\Shaders\simple-diffuse.vert">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

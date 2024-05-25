@@ -118,10 +118,13 @@
       </Command>
     </PostBuildEvent>
     <CustomBuildStep>
-      <Command>call $(SolutionDir)RawAssets\BuildAndDeployAssets.bat $(SolutionDir)RawAssets\ $(OutputPath)</Command>
-      <Message>Building And Deploying Assets</Message>
+      <Command>
+      </Command>
+      <Message>
+      </Message>
       <TreatOutputAsContent>false</TreatOutputAsContent>
-      <Outputs>FakeOutputSoBuildStepAlwaysRuns</Outputs>
+      <Outputs>
+      </Outputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -152,10 +155,13 @@
       </Command>
     </PostBuildEvent>
     <CustomBuildStep>
-      <Command>call $(SolutionDir)RawAssets\BuildAndDeployAssets.bat $(SolutionDir)RawAssets\ $(OutputPath)</Command>
-      <Message>Building And Deploying Assets</Message>
+      <Command>
+      </Command>
+      <Message>
+      </Message>
       <TreatOutputAsContent>false</TreatOutputAsContent>
-      <Outputs>FakeOutputSoBuildStepAlwaysRuns</Outputs>
+      <Outputs>
+      </Outputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -182,10 +188,13 @@
       </Command>
     </PostBuildEvent>
     <CustomBuildStep>
-      <Command>call $(SolutionDir)RawAssets\BuildAndDeployAssets.bat $(SolutionDir)RawAssets\ $(OutputPath)</Command>
-      <Message>Building And Deploying Assets</Message>
+      <Command>
+      </Command>
+      <Message>
+      </Message>
       <TreatOutputAsContent>false</TreatOutputAsContent>
-      <Outputs>FakeOutputSoBuildStepAlwaysRuns</Outputs>
+      <Outputs>
+      </Outputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -216,10 +225,13 @@
       </Command>
     </PostBuildEvent>
     <CustomBuildStep>
-      <Command>call $(SolutionDir)RawAssets\BuildAndDeployAssets.bat $(SolutionDir)RawAssets\ $(OutputPath)</Command>
-      <Message>Building And Deploying Assets</Message>
+      <Command>
+      </Command>
+      <Message>
+      </Message>
       <TreatOutputAsContent>false</TreatOutputAsContent>
-      <Outputs>FakeOutputSoBuildStepAlwaysRuns</Outputs>
+      <Outputs>
+      </Outputs>
     </CustomBuildStep>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -235,18 +247,13 @@
     <ClInclude Include="Source\App.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\RawAssets\BuildAndDeployAssets.bat" />
-    <None Include="..\RawAssets\Shaders\infinite-grid.frag" />
-    <None Include="..\RawAssets\Shaders\infinite-grid.vert" />
-    <None Include="..\RawAssets\Shaders\pass-through.vert" />
-    <None Include="..\RawAssets\Shaders\post-process.frag" />
-    <None Include="..\RawAssets\Shaders\simple-color.frag" />
-    <None Include="..\RawAssets\Shaders\simple-color.vert" />
-    <None Include="..\RawAssets\Shaders\simple-diffuse.frag" />
-    <None Include="..\RawAssets\Shaders\simple-diffuse.vert" />
+    <Text Include="..\Todo.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\Todo.txt" />
+    <None Include="..\Assets\Shaders\infinite-grid.frag" />
+    <None Include="..\Assets\Shaders\infinite-grid.vert" />
+    <None Include="..\Assets\Shaders\simple-diffuse.frag" />
+    <None Include="..\Assets\Shaders\simple-diffuse.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

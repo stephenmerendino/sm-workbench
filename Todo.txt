@@ -8,10 +8,11 @@
 	[x] Grid fade distance
 	[x] Line thicknesses
 [x] Hide UI button on bar
-[] Convert shaders to hlsl
-[] Incorporate DXC into build process
-[] Runtime HLSL compilation into SPIR-V
-	[] How reload shaders
+[x] Convert shaders to hlsl
+[x] Runtime HLSL compilation into SPIR-V
+	[x] Hot reload shaders
+[] Can't push origin from command line git
+[] Fix bug with infinite grid shader after hlsl conversion
 [] Compute shader post processing
 	[] Put in between main draw and imgui
 	[] Do manual gamma correction (https://registry.khronos.org/DataFormat/specs/1.3/dataformat.1.3.html#TRANSFER_SRGB)
