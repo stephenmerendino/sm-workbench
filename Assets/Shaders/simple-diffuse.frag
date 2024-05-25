@@ -20,6 +20,7 @@ PSOutput Main(PsInput IN)
     float4 diffuseColor = g_diffuse.Sample(g_linearSampler2D, IN.m_uv);
 	OUT.m_color = diffuseColor * IN.m_color;
 	OUT.m_color.xyz = pow(OUT.m_color.xyz, 1.0f / 2.2f);
+	OUT.m_color.xyz *= float3(1.0f, 1.0f, 1.0f);
 	return OUT;
 }
 
