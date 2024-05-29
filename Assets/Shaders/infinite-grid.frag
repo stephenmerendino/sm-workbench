@@ -32,14 +32,14 @@ static float g_smallLineColor = 0.25f;
 
 bool IsWithinRangeOfMod(float testValue, float modValue, float range)
 {
-	float remainder = abs(modf(testValue, modValue));
+	float remainder = abs(fmod(testValue, modValue));
 	return remainder <= range || (modValue - remainder) <= range;
 }
 
 float GetFadeout(float3 position, float gridModValue, float lineThickness, float falloffStart)
 {
-	float xRemainder = abs(modf(position.x, gridModValue));
-	float yRemainder = abs(modf(position.y, gridModValue));
+	float xRemainder = abs(fmod(position.x, gridModValue));
+	float yRemainder = abs(fmod(position.y, gridModValue));
 
     xRemainder = min(xRemainder, gridModValue - xRemainder);
     yRemainder = min(yRemainder, gridModValue - yRemainder);
