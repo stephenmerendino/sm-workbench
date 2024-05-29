@@ -45,6 +45,10 @@
 [] Debug rendering system
 [] Basic direct lighting
 	[] Lights need to be selectable and translatable & rotatable in the scene
+[] Fix bug with window resizing
+[] Enable fullscreen button in top right
+[] Windowed fullscreen
+[] Dedicated fullscreen
 [] PBR materials
 [] Sponza scene w/ some hardcoded lights setup
 [] Skybox
@@ -53,7 +57,7 @@
 ---- RENDERER ARCHITECTURE TIME
 [] Proper platform abstraction / setup
 [] Render graph
-[] VMA integration
+    [] VMA integration
 [] UI
 	[] Scene saving/loading
 	[] Import OBJ
@@ -81,3 +85,4 @@ Advanced Rendering
 [] Meshlets
 [] Surfels
 [] REStir
+[] DLSS/FSR
