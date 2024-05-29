@@ -14,6 +14,19 @@
 [x] Can't push origin from command line git
 [x] Fix bug with infinite grid shader after hlsl conversion
 [] Compute shader post processing
+	[] Make a new texture to store post processing in
+		It needs to be
+		storage image - post processing shader
+		render target - imgui will draw to it
+		transfer src - need to copy to back buffer
+	[] Need to make main draw resolved color buffer a storage image so we can read it in post process compute shader
+	[] Simple color tinting post processing compute shaderr
+	[] CPU Side compute shader compilation
+	[] Compute shader descriptor sets
+	[] Vulkan pipelines need to support compute shaders
+	[] Do compute shaders require a new render pass?
+	[] Synchronization primitives for new post processing pass
+	[] Need to get a graphics/compute queue handle to use, and we could also grab an async compute handle too while we're at it for the future?
 	[] Put in between main draw and imgui
 	[] Do manual gamma correction (https://registry.khronos.org/DataFormat/specs/1.3/dataformat.1.3.html#TRANSFER_SRGB)
 	[] Remove gamma correction from main draw shaders
@@ -28,5 +41,43 @@
     [] Meshes can be deselected
 [] Better line rendering
     https://atyuwen.github.io/posts/antialiased-line/
-	[] Better grid
-[] Lighting!
+	[] Better grid visuals
+[] Debug rendering system
+[] Basic direct lighting
+	[] Lights need to be selectable and translatable & rotatable in the scene
+[] PBR materials
+[] Sponza scene w/ some hardcoded lights setup
+[] Skybox
+
+
+---- RENDERER ARCHITECTURE TIME
+[] Proper platform abstraction / setup
+[] Render graph
+[] VMA integration
+[] UI
+	[] Scene saving/loading
+	[] Import OBJ
+	[] Import USB
+	[] Create materials
+	[] Assign materials
+	[] Selected Mesh Attributes
+	[] Selected Light Attributes
+	[] Take sceenshot and save it
+
+
+Advanced Rendering
+[] Depth Only pre pass
+[] IBL/Environment lighting
+[] Deferred renderer
+[] TAA
+[] Ray tracing
+[] GI
+[] Sky/Clouds
+[] Decals
+[] Water
+[] AO
+[] Multithreaded command buffer generation
+[] Bindless rendering
+[] Meshlets
+[] Surfels
+[] REStir
