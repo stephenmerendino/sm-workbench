@@ -29,3 +29,4 @@
 [] Better line rendering
     https://atyuwen.github.io/posts/antialiased-line/
 	[] Better grid
+[] Lighting!

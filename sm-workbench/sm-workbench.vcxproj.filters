@@ -25,16 +25,16 @@
     <Text Include="..\Todo.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Assets\Shaders\infinite-grid.frag">
+    <None Include="..\Assets\Shaders\infinite-grid.ps.hlsl">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="..\Assets\Shaders\infinite-grid.vert">
+    <None Include="..\Assets\Shaders\infinite-grid.vs.hlsl">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="..\Assets\Shaders\simple-diffuse.frag">
+    <None Include="..\Assets\Shaders\simple-diffuse.ps.hlsl">
       <Filter>Shaders</Filter>
     </None>
-    <None Include="..\Assets\Shaders\simple-diffuse.vert">
+    <None Include="..\Assets\Shaders\simple-diffuse.vs.hlsl">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>
