@@ -14,17 +14,16 @@
 [x] Can't push origin from command line git
 [x] Fix bug with infinite grid shader after hlsl conversion
 [] Compute shader post processing
-	[] Make a new texture to store post processing in
+	[x] CPU Side compute shader compilation
+	[x] Make a new texture to store post processing in
 		It needs to be
 		storage image - post processing shader
 		render target - imgui will draw to it
 		transfer src - need to copy to back buffer
-	[] Need to make main draw resolved color buffer a storage image so we can read it in post process compute shader
-	[] Simple color tinting post processing compute shaderr
-	[] CPU Side compute shader compilation
-	[] Compute shader descriptor sets
 	[] Vulkan pipelines need to support compute shaders
-	[] Do compute shaders require a new render pass?
+	[] Compute shader descriptor sets
+	[] Need to make main draw resolved color buffer a storage image so we can read it in post process compute shader
+	[] Simple color tinting post processing compute shader
 	[] Synchronization primitives for new post processing pass
 	[] Need to get a graphics/compute queue handle to use, and we could also grab an async compute handle too while we're at it for the future?
 	[] Put in between main draw and imgui

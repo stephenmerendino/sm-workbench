@@ -37,5 +37,8 @@
     <None Include="..\Assets\Shaders\simple-diffuse.vs.hlsl">
       <Filter>Shaders</Filter>
     </None>
+    <None Include="..\Assets\Shaders\post-processing.cs.hlsl">
+      <Filter>Shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>
