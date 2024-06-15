@@ -1,3 +1,4 @@
+Main
 [x] Infinite Grid
 [x] Vulkan debug markers (https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_debug_marker.html)
 [x] Info window
@@ -52,7 +53,6 @@
 [] Sponza scene w/ some hardcoded lights setup
 [] Skybox
 
-
 ---- RENDERER ARCHITECTURE TIME
 [] Proper platform abstraction / setup
 [] Render graph
@@ -66,7 +66,6 @@
 	[] Selected Mesh Attributes
 	[] Selected Light Attributes
 	[] Take sceenshot and save it
-
 
 Advanced Rendering
 [] Depth Only pre pass
@@ -85,3 +84,9 @@ Advanced Rendering
 [] Surfels
 [] REStir
 [] DLSS/FSR
+
+Bugs
+[x] Resizing doesn't update viewport
+
+Random Topics
+[] Are there any nice ways I could use a natvis file? Vectors? Matrices?

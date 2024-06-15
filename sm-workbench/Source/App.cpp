@@ -67,6 +67,7 @@ void App::Run()
 	{
 		// Begin frame
 		g_inputSystem.BeginFrame();
+		UI::BeginFrame();
 
 		// Update
 		m_pAppWindow->Update();
