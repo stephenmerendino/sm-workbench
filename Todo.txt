@@ -24,12 +24,12 @@ Main
 	[x] Vulkan pipelines need to support compute shaders
 	[x] Simple color tinting post processing compute shader
 	[x] Need to get a graphics/compute queue handle to use, and we could also grab an async compute handle too while we're at it for the future?
-	[] Compute shader descriptor sets
+	[x] Compute shader descriptor sets
 		Input texture
 		Output texture
-	[] Need to make main draw resolved color buffer a storage image so we can read it in post process compute shader
+	[x] Need to make main draw resolved color buffer a storage image so we can read it in post process compute shader
 	[] Synchronization primitives for new post processing pass
-	[] Put in between main draw and imgui
+	[] Dispatch in between main draw and imgui
 	[] Do manual gamma correction (https://registry.khronos.org/DataFormat/specs/1.3/dataformat.1.3.html#TRANSFER_SRGB)
 	[] Remove gamma correction from main draw shaders
 	[] Modify clear color to be srgb with pow(x, 2.2f)
@@ -44,7 +44,7 @@ Main
 [] Better line rendering
     https://atyuwen.github.io/posts/antialiased-line/
 	[] Better grid visuals
-[] Debug rendering system
+[] Debug rendering system (sphere, line, aabb3d, screenspace rect, etc)
 [] Basic direct lighting
 	[] Lights need to be selectable and translatable & rotatable in the scene
 [] Fix bug with window resizing
