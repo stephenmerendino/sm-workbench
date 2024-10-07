@@ -242,12 +242,12 @@
   <ItemGroup>
     <ClCompile Include="Source\App.cpp" />
     <ClCompile Include="Source\MainWin32.cpp" />
-    <ClCompile Include="Source\main_win.cpp" />
     <ClCompile Include="src\game.cpp" />
+    <ClCompile Include="src\main_win.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\App.h" />
-    <ClInclude Include="Source\game.h" />
+    <ClInclude Include="src\game.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\Todo.txt" />

@@ -12,9 +12,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\main_win.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="Source\App.cpp">
       <Filter>Source</Filter>
     </ClCompile>
@@ -24,13 +21,16 @@
     <ClCompile Include="src\game.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\main_win.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\game.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="Source\App.h">
       <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
