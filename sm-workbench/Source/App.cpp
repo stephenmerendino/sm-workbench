@@ -1,7 +1,7 @@
 #include "App.h"
 #include "Engine/Config.h"
 #include "Engine/Core/Assert.h"
-#include "Engine/Core/Debug.h"
+#include "Engine/Core/Debug_Old.h"
 #include "Engine/Core/Macros.h"
 #include "Engine/Core/Time.h"
 #include "Engine/Input/InputSystem.h"
