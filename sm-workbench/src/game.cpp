@@ -5,6 +5,7 @@
 #include "sm/core/string.h"
 #include "sm/core/assert.h"
 #include "sm/core/debug.h"
+#include "sm/core/random.h"
 #include "sm/core/time.h"
 #include "sm/core/types.h"
 #include "sm/memory/arena.h"
@@ -58,7 +59,8 @@ int run_game()
     sm::set_title(s_app_window, "Test");
 
     sm::init_time();
-
+	sm::init_random();
+	
     sm::stopwatch_t frame_stopwatch;
 
 	sm::f32 ds = 0.0f;
