@@ -67,8 +67,8 @@ int run_game()
         sm::update_window(s_app_window);
 
 		// End Frame
-		sm::f32 workTimeSeconds = sm::get_elapsed_seconds(&frame_stopwatch);
-		sleep_remaining_frame(workTimeSeconds);
+		sm::f32 work_time_seconds = sm::get_elapsed_seconds(&frame_stopwatch);
+		sleep_remaining_frame(work_time_seconds);
 
 		// Set up next frame
 		ds = get_elapsed_seconds(&frame_stopwatch);
