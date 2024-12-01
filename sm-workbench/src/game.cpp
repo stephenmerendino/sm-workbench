@@ -52,12 +52,21 @@ static void sleep_remaining_frame(sm::f32 ds)
 	sm::sleep_thread_seconds(time_to_sleep_seconds);
 }
 
+static void game_window_msg_handler(sm::window_msg_type_t msg_type, sm::u64 msg_data, void* user_args)
+{
+	if(msg_type == sm::window_msg_type_t::CLOSE_WINDOW)
+	{
+		s_is_running = false;
+	}
+}
+
 int run_game()
 {
     sm::arena_t* app_startup_arena = sm::init_arena(KiB(1));
 
     s_app_window = sm::init_window(app_startup_arena, "SM Workbench", 1920, 1080, true);
     sm::set_title(s_app_window, "Test");
+	sm::add_window_msg_cb(s_app_window, game_window_msg_handler, nullptr);
 
     sm::init_time();
 	sm::init_random();
