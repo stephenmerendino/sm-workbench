@@ -8,6 +8,7 @@
 #include "sm/core/random.h"
 #include "sm/core/time.h"
 #include "sm/core/types.h"
+#include "sm/io/device_input.h"
 #include "sm/memory/arena.h"
 #include "sm/render/window.h"
 #include "sm/thread/thread.h"
@@ -60,6 +61,7 @@ int run_game()
 
     sm::init_time();
 	sm::init_random();
+	sm::init_device_input(s_app_window);
 	
     sm::stopwatch_t frame_stopwatch;
 
