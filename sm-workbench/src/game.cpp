@@ -70,7 +70,7 @@ int run_game()
 
     sm::init_time();
 	sm::init_random();
-	sm::init_device_input(s_app_window);
+	sm::init_device_inputs(s_app_window);
 	
     sm::stopwatch_t frame_stopwatch;
 
@@ -87,6 +87,11 @@ int run_game()
 		ds = get_elapsed_seconds(&frame_stopwatch);
 		sm::start_stopwatch(&frame_stopwatch);
 		report_fps(ds);
+
+		if(sm::was_key_pressed(sm::key_code_t::KEY_ESCAPE))
+		{
+			s_is_running = false;
+		}
 	}
 
 	return 0;
