@@ -11,6 +11,7 @@
 #include "sm/io/device_input.h"
 #include "sm/memory/arena.h"
 #include "sm/render/window.h"
+#include "sm/render/vk_renderer.h"
 #include "sm/thread/thread.h"
 
 static bool s_is_running = true;
@@ -64,14 +65,15 @@ int run_game()
 {
     sm::arena_t* app_startup_arena = sm::init_arena(KiB(1));
 
-    s_app_window = sm::init_window(app_startup_arena, "SM Workbench", 1920, 1080, true);
+    s_app_window = sm::init_window(*app_startup_arena, "SM Workbench", 1920, 1080, true);
     sm::set_title(s_app_window, "Test");
 	sm::add_window_msg_cb(s_app_window, game_window_msg_handler, nullptr);
 
     sm::init_time();
 	sm::init_random();
 	sm::init_device_inputs(s_app_window);
-	
+	sm::init_renderer(s_app_window);
+
     sm::stopwatch_t frame_stopwatch;
 
 	sm::f32 ds = 0.0f;
