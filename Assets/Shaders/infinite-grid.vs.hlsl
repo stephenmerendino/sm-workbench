@@ -9,6 +9,7 @@ struct InfiniteGridData
     float m_minorLineThickness;
 };
 
+[[vk::binding(0, 0)]]
 ConstantBuffer<InfiniteGridData> g_infiniteGridData : register(b0, space0);
 
 static float4 g_ndcPositions[6] = 
@@ -23,14 +24,14 @@ static float4 g_ndcPositions[6] =
 
 struct VSInput
 {
-	uint m_vertexIndex : SV_VertexID;
+	[[vk::location(0)]] uint m_vertexIndex : SV_VertexID;
 };
 
 struct VSOutput
 {
     float4 m_pos : SV_POSITION;
-	float4 m_worldPosNear : COLOR0;
-	float4 m_worldPosFar : COLOR1;
+	[[vk::location(0)]] float4 m_worldPosNear : COLOR0;
+	[[vk::location(1)]] float4 m_worldPosFar : COLOR1;
 };
 
 VSOutput Main(VSInput IN)

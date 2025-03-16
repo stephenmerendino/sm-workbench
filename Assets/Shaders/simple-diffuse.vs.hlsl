@@ -3,15 +3,15 @@
 struct VsInput
 {
 	[[vk::location(0)]] float3 m_pos : POSITION0;
-	[[vk::location(1)]] float4 m_color : COLOR0;
-	[[vk::location(2)]] float2 m_uv : UV0;
+	[[vk::location(1)]] float2 m_uv : UV0;
+	[[vk::location(2)]] float3 m_color : COLOR0;
 };
 
 struct VsOutput
 {
 	float4 m_pos : SV_POSITION;
-	[[vk::location(0)]] float4 m_color : COLOR0;
-	[[vk::location(1)]] float2 m_uv : UV0;
+	[[vk::location(0)]] float2 m_uv : UV0;
+	[[vk::location(1)]] float3 m_color : COLOR0;
 };
 
 struct FrameRenderData
@@ -25,7 +25,10 @@ struct MeshInstanceRenderData
 	float4x4 m_mvp;
 };
 
+[[vk::binding(0, 1)]]
 ConstantBuffer<FrameRenderData> g_frameRenderData : register(b0, space1);
+
+[[vk::binding(0, 3)]]
 ConstantBuffer<MeshInstanceRenderData> g_meshInstanceRenderData : register(b0, space3);
 
 VsOutput Main(VsInput input)

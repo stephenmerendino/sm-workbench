@@ -1,7 +1,9 @@
 // need a storage image for input
+[[vk::binding(0, 0)]]
 RWTexture2D<float4> g_mainDrawResult : register(u0, space0);
 
 // need a storage image for output
+[[vk::binding(1, 0)]]
 RWTexture2D<float4> g_postProcessingResult : register(u1, space0);
 
 [numthreads(8, 8, 1)]

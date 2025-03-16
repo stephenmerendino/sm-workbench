@@ -34,7 +34,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\Todo.txt" />
+    <Text Include="..\todo.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Assets\Shaders\infinite-grid.ps.hlsl">

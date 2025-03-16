@@ -1,77 +1,39 @@
-Main
-[x] Infinite Grid
-[x] Vulkan debug markers (https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VK_EXT_debug_marker.html)
-[x] Info window
-	[x] Camera position
-	[x] Current Resolution
-[x] Render Settings Window
-	[x] Enable/Disable grid
-	[x] Grid fade distance
-	[x] Line thicknesses
-[x] Hide UI button on bar
-[x] Convert shaders to hlsl
-[x] Runtime HLSL compilation into SPIR-V
-	[x] Hot reload shaders
-[x] Can't push origin from command line git
-[x] Fix bug with infinite grid shader after hlsl conversion
-[] Compute shader post processing
-	[x] CPU Side compute shader compilation
-	[x] Make a new texture to store post processing in
-		It needs to be
-		storage image - post processing shader
-		render target - imgui will draw to it
-		transfer src - need to copy to back buffer
-	[x] Vulkan pipelines need to support compute shaders
-	[x] Simple color tinting post processing compute shader
-	[x] Need to get a graphics/compute queue handle to use, and we could also grab an async compute handle too while we're at it for the future?
-	[x] Compute shader descriptor sets
-		Input texture
-		Output texture
-	[x] Need to make main draw resolved color buffer a storage image so we can read it in post process compute shader
-	[] Synchronization primitives for new post processing pass
-	[] Dispatch in between main draw and imgui
-	[] Do manual gamma correction (https://registry.khronos.org/DataFormat/specs/1.3/dataformat.1.3.html#TRANSFER_SRGB)
-	[] Remove gamma correction from main draw shaders
-	[] Modify clear color to be srgb with pow(x, 2.2f)
-[] Transform gizmo
-	[] Gizmo works on viking room
-		[] Translation
-		[] Rotation
-		[] Scale
-    [] Meshes are selectable
-    [] Meshes have highlight when selected
-    [] Meshes can be deselected
-[] Better line rendering
-    https://atyuwen.github.io/posts/antialiased-line/
-	[] Better grid visuals
-[] Debug rendering system (sphere, line, aabb3d, screenspace rect, etc)
-[] Basic direct lighting
-	[] Lights need to be selectable and translatable & rotatable in the scene
-[] Fix bug with window resizing
-[] Enable fullscreen button in top right
-[] Windowed fullscreen
-[] Dedicated fullscreen
-[] PBR materials
-[] Sponza scene w/ some hardcoded lights setup
-[] Skybox
+Bugs
+<Insert bugs here>
 
----- RENDERER ARCHITECTURE TIME
-[] Proper platform abstraction / setup
-[] Render graph
-    [] VMA integration
-[] UI
-	[] Scene saving/loading
-	[] Import OBJ
-	[] Import USB
-	[] Create materials
-	[] Assign materials
-	[] Selected Mesh Attributes
-	[] Selected Light Attributes
-	[] Take sceenshot and save it
+----------------------------------------------------------------------------------
+Topics to learn about:
 
-Advanced Rendering
+Vulkan
+-Push constants
+-Bindless rendering
+-What is a fragment density map?
+-What is sample shading in multisample state create info?
+
+Rendering
+-Restir
+-DDGI
+
+Random
+-Radix sort
+
+----------------------------------------------------------------------------------
+Roadmap
+[] Basic renderer working with viking mesh
+[] ImGui working
+[] Shader hot reload
+[] Infinite ground plane
+[] Post processs pass w/ compute shader
+[] Object selection in scene w/ gizmo control
+[] Scene saving & loading
+[] Can add basic primitives to scene
+[] Basic lighting
+[] Can add lights to the scene
+...
+...
+...
 [] Depth Only pre pass
-[] IBL/Environment lighting
+[] IBL/Prefiltered Environment lighting
 [] Deferred renderer
 [] TAA
 [] Ray tracing
@@ -86,9 +48,3 @@ Advanced Rendering
 [] Surfels
 [] REStir
 [] DLSS/FSR
-
-Bugs
-[x] Resizing doesn't update viewport
-
-Random Topics
-[] Are there any nice ways I could use a natvis file? Vectors? Matrices?

@@ -9,12 +9,13 @@ struct InfiniteGridData
     float m_minorLineThickness;
 };
 
+[[vk::binding(0, 0)]]
 ConstantBuffer<InfiniteGridData> g_infiniteGridData : register(b0, space0);
 
 struct PSInput
 {
-	float4 m_worldPosNear : COLOR0;
-	float4 m_worldPosFar : COLOR1;
+	[[vk::location(0)]] float4 m_worldPosNear : COLOR0;
+	[[vk::location(1)]] float4 m_worldPosFar : COLOR1;
 };
 
 struct PSOutput
