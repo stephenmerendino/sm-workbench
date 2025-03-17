@@ -8,7 +8,7 @@
 #include "sm/core/random.h"
 #include "sm/core/time.h"
 #include "sm/core/types.h"
-#include "sm/io/device_input.h"
+#include "sm/io/input.h"
 #include "sm/memory/arena.h"
 #include "sm/render/window.h"
 #include "sm/render/vk_renderer.h"
@@ -32,7 +32,7 @@ static void report_fps(sm::f32 ds)
 		char new_title[256];
 		::sprintf_s(new_title, "sm workbench - fps: %f - frame time: %.2f ms\n", avg_current_fps, ds * 1000.0f);
 
-		sm::set_title(s_app_window, new_title);
+		sm::window_set_title(s_app_window, new_title);
 
 		s_frame_count = 0;
 		s_frame_time_accrual = 0.0f;
@@ -50,7 +50,7 @@ static void sleep_remaining_frame(sm::f32 ds)
 	}
 
 	sm::f32 time_to_sleep_seconds = max_seconds_per_frame - ds;
-	sm::sleep_thread_seconds(time_to_sleep_seconds);
+	sm::thread_sleep_seconds(time_to_sleep_seconds);
 }
 
 static void app_window_msg_handler(sm::window_msg_type_t msg_type, sm::u64 msg_data, void* user_args)
@@ -61,23 +61,22 @@ static void app_window_msg_handler(sm::window_msg_type_t msg_type, sm::u64 msg_d
 	}
 }
 
-int run_app()
+int app_run()
 {
-    sm::arena_t* app_startup_arena = sm::init_arena(KiB(1));
+    sm::arena_t* app_startup_arena = sm::arena_init(KiB(1));
 
-    s_app_window = sm::init_window(app_startup_arena, "sm workbench", 1920, 1080, true);
-	sm::add_window_msg_cb(s_app_window, app_window_msg_handler, nullptr);
+    s_app_window = sm::window_init(app_startup_arena, "sm workbench", 1920, 1080, true);
+	sm::window_add_msg_cb(s_app_window, app_window_msg_handler, nullptr);
 
-    sm::init_time();
-	sm::init_random();
-	sm::init_device_inputs(s_app_window);
+    sm::time_init();
+	sm::random_init();
+	sm::input_init(s_app_window);
 	sm::renderer_init(s_app_window);
-
 
 	sm::f32 ds = 0.016f; // default to delta seconds of 60 fps frame time
 
     sm::stopwatch_t frame_stopwatch;
-    sm::start_stopwatch(&frame_stopwatch);
+    sm::stopwatch_start(&frame_stopwatch);
 
 	while (s_is_running)
 	{
@@ -85,7 +84,7 @@ int run_app()
 		sm::renderer_begin_frame();
 
 		// update
-        sm::update_window(s_app_window);
+        sm::window_update(s_app_window);
 		sm::renderer_update_frame(ds);
 
 		// render
@@ -95,16 +94,16 @@ int run_app()
 		sm::renderer_end_frame();
 
 		// End Frame
-		sm::f32 work_time_seconds = sm::get_elapsed_seconds(&frame_stopwatch);
+		sm::f32 work_time_seconds = sm::stopwatch_get_elapsed_seconds(&frame_stopwatch);
 		sleep_remaining_frame(work_time_seconds);
 
 		// set up next frame
-		ds = get_elapsed_seconds(&frame_stopwatch);
-		sm::start_stopwatch(&frame_stopwatch);
+		ds = sm::stopwatch_get_elapsed_seconds(&frame_stopwatch);
+		sm::stopwatch_start(&frame_stopwatch);
 
 		report_fps(ds);
 
-		if(sm::was_key_pressed(sm::key_code_t::KEY_ESCAPE))
+		if(sm::input_was_key_pressed(sm::key_code_t::KEY_ESCAPE))
 		{
 			s_is_running = false;
 		}

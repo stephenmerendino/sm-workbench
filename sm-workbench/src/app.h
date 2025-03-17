@@ -1,3 +1,3 @@
 #pragma once
 
-int run_app();
+int app_run();

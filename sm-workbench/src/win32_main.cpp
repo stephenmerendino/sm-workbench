@@ -14,7 +14,7 @@ int WINAPI WinMain(_In_		HINSTANCE app,
 	UNUSED(args);
 	UNUSED(show);
 
-	run_app();
+	app_run();
 
 	return 0;
 }
