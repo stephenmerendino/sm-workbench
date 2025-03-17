@@ -12,13 +12,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\App.cpp">
+    <ClCompile Include="Source\App_old.cpp">
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Source\MainWin32.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="src\game.cpp">
+    <ClCompile Include="src\app.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\win32_main.cpp">
@@ -26,10 +26,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\App.h">
+    <ClInclude Include="Source\App_old.h">
       <Filter>Source</Filter>
     </ClInclude>
-    <ClInclude Include="src\game.h">
+    <ClInclude Include="src\app.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

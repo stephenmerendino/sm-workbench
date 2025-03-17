@@ -2,7 +2,7 @@
 
 #include "Engine/Core/Macros.h"
 
-#include "game.h"
+#include "app.h"
 
 int WINAPI WinMain(_In_		HINSTANCE app, 
 				   _In_opt_ HINSTANCE prevApp, 
@@ -14,7 +14,7 @@ int WINAPI WinMain(_In_		HINSTANCE app,
 	UNUSED(args);
 	UNUSED(show);
 
-	run_game();
+	run_app();
 
 	return 0;
 }

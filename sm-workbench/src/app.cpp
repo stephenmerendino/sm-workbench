@@ -1,4 +1,4 @@
-#include "game.h"
+#include "app.h"
 
 #include "sm/config.h"
 #include "sm/core/array.h"
@@ -30,7 +30,7 @@ static void report_fps(sm::f32 ds)
 		sm::f32 avg_current_fps = (sm::f32)s_frame_count / s_frame_time_accrual;
 
 		char new_title[256];
-		::sprintf_s(new_title, "SM Workbench - FPS: %f - Frame Time (ms): %f\n", avg_current_fps, ds * 1000.0f);
+		::sprintf_s(new_title, "sm workbench - fps: %f - frame time: %.2f ms\n", avg_current_fps, ds * 1000.0f);
 
 		sm::set_title(s_app_window, new_title);
 
@@ -53,7 +53,7 @@ static void sleep_remaining_frame(sm::f32 ds)
 	sm::sleep_thread_seconds(time_to_sleep_seconds);
 }
 
-static void game_window_msg_handler(sm::window_msg_type_t msg_type, sm::u64 msg_data, void* user_args)
+static void app_window_msg_handler(sm::window_msg_type_t msg_type, sm::u64 msg_data, void* user_args)
 {
 	if(msg_type == sm::window_msg_type_t::CLOSE_WINDOW)
 	{
@@ -61,39 +61,47 @@ static void game_window_msg_handler(sm::window_msg_type_t msg_type, sm::u64 msg_
 	}
 }
 
-void test_stuff()
-{
-}
-
-int run_game()
+int run_app()
 {
     sm::arena_t* app_startup_arena = sm::init_arena(KiB(1));
 
-    s_app_window = sm::init_window(app_startup_arena, "SM Workbench", 1920, 1080, true);
-    sm::set_title(s_app_window, "Test");
-	sm::add_window_msg_cb(s_app_window, game_window_msg_handler, nullptr);
+    s_app_window = sm::init_window(app_startup_arena, "sm workbench", 1920, 1080, true);
+	sm::add_window_msg_cb(s_app_window, app_window_msg_handler, nullptr);
 
     sm::init_time();
 	sm::init_random();
 	sm::init_device_inputs(s_app_window);
-	sm::init_renderer(s_app_window);
+	sm::renderer_init(s_app_window);
+
+
+	sm::f32 ds = 0.016f; // default to delta seconds of 60 fps frame time
 
     sm::stopwatch_t frame_stopwatch;
+    sm::start_stopwatch(&frame_stopwatch);
 
-	test_stuff();
-
-	sm::f32 ds = 0.0f;
 	while (s_is_running)
 	{
+		// begin frame
+		sm::renderer_begin_frame();
+
+		// update
         sm::update_window(s_app_window);
+		sm::renderer_update_frame(ds);
+
+		// render
+		sm::renderer_render_frame();
+
+		// end frame
+		sm::renderer_end_frame();
 
 		// End Frame
 		sm::f32 work_time_seconds = sm::get_elapsed_seconds(&frame_stopwatch);
 		sleep_remaining_frame(work_time_seconds);
 
-		// Set up next frame
+		// set up next frame
 		ds = get_elapsed_seconds(&frame_stopwatch);
 		sm::start_stopwatch(&frame_stopwatch);
+
 		report_fps(ds);
 
 		if(sm::was_key_pressed(sm::key_code_t::KEY_ESCAPE))
