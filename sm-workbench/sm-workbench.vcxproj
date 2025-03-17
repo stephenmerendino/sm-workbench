@@ -240,13 +240,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\App_old.cpp" />
-    <ClCompile Include="Source\MainWin32.cpp" />
     <ClCompile Include="src\app.cpp" />
     <ClCompile Include="src\win32_main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\App_old.h" />
     <ClInclude Include="src\app.h" />
   </ItemGroup>
   <ItemGroup>

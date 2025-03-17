@@ -1,3 +1,7 @@
+Tasks
+[] Implement mouse movement functionality in input system
+[] Use convention of <system/struct>_<function> eg. renderer_init, camera_update, mesh_add_vertex, vertex_init
+
 Bugs
 <Insert bugs here>
 
