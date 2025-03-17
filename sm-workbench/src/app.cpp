@@ -81,16 +81,19 @@ int app_run()
 	while (s_is_running)
 	{
 		// begin frame
+		sm::input_begin_frame();
 		sm::renderer_begin_frame();
 
 		// update
         sm::window_update(s_app_window);
+		sm::input_update(ds);
 		sm::renderer_update_frame(ds);
 
 		// render
 		sm::renderer_render_frame();
 
 		// end frame
+		sm::input_end_frame();
 		sm::renderer_end_frame();
 
 		// End Frame
