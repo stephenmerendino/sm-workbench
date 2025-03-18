@@ -93,7 +93,6 @@ int app_run()
 		sm::renderer_render_frame();
 
 		// end frame
-		sm::input_end_frame();
 		sm::renderer_end_frame();
 
 		// End Frame
