@@ -83,19 +83,19 @@ int app_run()
 		// begin frame
 		sm::input_begin_frame();
 		sm::renderer_begin_frame();
+		//game_begin_frame();
 
 		// update
         sm::window_update(s_app_window);
 		sm::input_update(ds);
 		sm::renderer_update_frame(ds);
+		//game_update();
 
 		// render
+		//game_render();
 		sm::renderer_render_frame();
 
-		// end frame
-		sm::renderer_end_frame();
-
-		// End Frame
+		// end Frame
 		sm::f32 work_time_seconds = sm::stopwatch_get_elapsed_seconds(&frame_stopwatch);
 		sleep_remaining_frame(work_time_seconds);
 
