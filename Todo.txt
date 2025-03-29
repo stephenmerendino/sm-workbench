@@ -1,9 +1,21 @@
 Tasks
-[] Implement mouse movement functionality in input system
-[] Use convention of <system/struct>_<function> eg. renderer_init, camera_update, mesh_add_vertex, vertex_init
+[x] Implement mouse movement functionality in input system
+[x] Use convention of <system/struct>_<function> eg. renderer_init, camera_update, mesh_add_vertex, vertex_init
+[] upload_buffer takes a command buffer instead of internally using a one time submit command buffer
+	[] how will the staging buffer part work? do we pass a staging buffer in too?
+[] get shader debugging working in render doc with shader debug info working too
+[] Post processs pass w/ compute shader
+	[] move gamma correction to post processing shader
+[] Object selection in scene w/ gizmo control
+    [] objects render out an object id to a full screen buffer
+    [] when user clicks on the screen we run a compute shader to return the object id of the pixel clicked on
+        [] if the user clicked on a valid object id, then we "select" that object in the scene
+	[] a gizmo control renders at the location of the selected object
+	[] gizmo respond to user clicking and dragging for translation, rotation, and scale
+	[] selected object has a outline effect drawn around it
 
 Bugs
-<Insert bugs here>
+[] When I move away from the viking room it turns black
 
 ----------------------------------------------------------------------------------
 Topics to learn about:
@@ -23,12 +35,12 @@ Random
 
 ----------------------------------------------------------------------------------
 Roadmap
-[] Basic renderer working with viking mesh
-[] ImGui working
-[] Shader hot reload
-[] Infinite ground plane
+[x] Basic renderer working with viking mesh
+[x] ImGui working
 [] Post processs pass w/ compute shader
 [] Object selection in scene w/ gizmo control
+[] Shader hot reload
+[] Infinite ground plane
 [] Scene saving & loading
 [] Can add basic primitives to scene
 [] Basic lighting
