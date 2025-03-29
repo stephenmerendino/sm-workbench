@@ -1,6 +1,5 @@
 #include "sm/platform/win32/win32_include.h"
-
-#include "Engine/Core/Macros.h"
+#include "sm/core/helpers.h"
 
 #include "app.h"
 
