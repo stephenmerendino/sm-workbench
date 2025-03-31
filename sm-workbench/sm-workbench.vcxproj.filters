@@ -22,9 +22,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\todo.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="..\Assets\Shaders\infinite-grid.ps.hlsl">
       <Filter>shaders</Filter>
     </None>
@@ -40,5 +37,8 @@
     <None Include="..\Assets\Shaders\post-processing.cs.hlsl">
       <Filter>shaders</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\_todo.txt" />
   </ItemGroup>
 </Project>

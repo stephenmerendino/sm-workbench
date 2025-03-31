@@ -1,41 +1,41 @@
 #pragma pack_matrix(row_major)
 
-struct VsInput
+struct vs_input_t
 {
-	[[vk::location(0)]] float3 m_pos : POSITION0;
-	[[vk::location(1)]] float2 m_uv : UV0;
-	[[vk::location(2)]] float3 m_color : COLOR0;
+	[[vk::location(0)]] float3 pos : POSITION0;
+	[[vk::location(1)]] float2 uv : UV0;
+	[[vk::location(2)]] float3 color : COLOR0;
 };
 
-struct VsOutput
+struct vs_output_t
 {
-	float4 m_pos : SV_POSITION;
-	[[vk::location(0)]] float2 m_uv : UV0;
-	[[vk::location(1)]] float3 m_color : COLOR0;
+	float4 pos : SV_POSITION;
+	[[vk::location(0)]] float2 uv : UV0;
+	[[vk::location(1)]] float3 color : COLOR0;
 };
 
-struct FrameRenderData
+struct frame_render_data_t
 {
-	float m_elapsedTimeSeconds;
-	float m_deltaTimeSeconds;
+	float elapsed_time_seconds;
+	float delta_time_seconds;
 };
 
-struct MeshInstanceRenderData
+struct mesh_instance_render_data_t 
 {
-	float4x4 m_mvp;
+	float4x4 mvp;
 };
 
 [[vk::binding(0, 1)]]
-ConstantBuffer<FrameRenderData> g_frameRenderData : register(b0, space1);
+ConstantBuffer<frame_render_data_t> g_frame_render_data : register(b0, space1);
 
 [[vk::binding(0, 3)]]
-ConstantBuffer<MeshInstanceRenderData> g_meshInstanceRenderData : register(b0, space3);
+ConstantBuffer<mesh_instance_render_data_t> g_mesh_instance_render_data : register(b0, space3);
 
-VsOutput Main(VsInput input)
+vs_output_t main(vs_input_t input)
 {
-	VsOutput vertOutput;
-	vertOutput.m_pos = mul(float4(input.m_pos, 1.0f), g_meshInstanceRenderData.m_mvp);
-	vertOutput.m_color = input.m_color;
-	vertOutput.m_uv = input.m_uv;
-	return vertOutput;
+	vs_output_t vert_output;
+	vert_output.pos = mul(float4(input.pos, 1.0f), g_mesh_instance_render_data.mvp);
+	vert_output.color = input.color;
+	vert_output.uv = input.uv;
+	return vert_output;
 }

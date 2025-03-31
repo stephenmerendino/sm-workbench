@@ -29,6 +29,7 @@ Improvements
     [] Refactor existing frame code to make it easier to annotate with debug information
     [] Refactor upload_buffer_data
         -Right now its setting up a staging buffer and command buffer inside, once we have a better staging buffer strategy we should change this
+    [] Move the expansion of shader filename to full path out of the win32 specific code to somewhere agnostic
 
 Bugs
     NONE ATM
@@ -46,6 +47,12 @@ Vulkan
 Rendering
     -Restir
     -DDGI
+
+Concurrency
+    -Lockless programming
+    -Atomics
+    -Mutexes
+    -Events
 
 Misc
     -Radix sort
