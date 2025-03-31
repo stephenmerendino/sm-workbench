@@ -9,7 +9,7 @@ New Features
     [x] Shader hot reload
     [x] Debug labels for vulkan submits
     [x] Debug names for vulkan objects
-    [] Post processs pass w/ compute shader
+    [x] Post processs pass w/ compute shader
     [] Object selection in scene w/ gizmo control
         [] a gizmo control renders at the location of the selected object
         [] gizmo respond to user clicking and dragging for translation, rotation, and scale
@@ -19,6 +19,7 @@ New Features
         [] selected object has a outline effect drawn around it
 
 Improvements
+    [] In post process pass, g_main_draw_result doesn't need to be a storage image (RWTexture2D)
     [] Improve how ui system communicates to rest of engine / game
     [] Maximized window support
     [] Borderless fullscreen support
