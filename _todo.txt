@@ -27,7 +27,7 @@ Improvements
     [] Copy over needed runtime asset data to the run folder and make the run folder the working directory
     [] Can we use hardware srgb texture format to get rid of manual gamma correction?
     [] Move game module to a dll and load it from engine with hooks for engine to call
-    [] Refactor existing frame code to make it easier to annotate with debug information
+    [] Refactor existing render_frame code to make it easier to annotate with debug information
     [] Refactor upload_buffer_data
         -Right now its setting up a staging buffer and command buffer inside, once we have a better staging buffer strategy we should change this
     [] Move the expansion of shader filename to full path out of the win32 specific code to somewhere agnostic
@@ -64,8 +64,9 @@ Roadmap
 [x] Basic renderer working with viking mesh
 [x] ImGui working
 [x] Shader hot reload
-[] Post processs pass w/ compute shader
+[x] Post processs pass w/ compute shader
 [] Object selection in scene w/ gizmo control
+[] Debug draw system
 [] Infinite ground plane
 [] Scene saving & loading
 [] Can add basic primitives to scene
@@ -80,6 +81,8 @@ Roadmap
 [] TAA
 [] Ray tracing
 [] GI
+    [] Surfels
+    [] REStir
 [] Sky/Clouds
 [] Decals
 [] Water
@@ -87,8 +90,6 @@ Roadmap
 [] Multithreaded command buffer generation
 [] Bindless rendering
 [] Meshlets
-[] Surfels
-[] REStir
 [] DLSS/FSR
 
 [] Post Processing
