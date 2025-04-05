@@ -10,6 +10,7 @@ New Features
     [x] Debug labels for vulkan submits
     [x] Debug names for vulkan objects
     [x] Post processs pass w/ compute shader
+    [] Create some type of drawable mesh struct that can work for viking room, gizmo, and basic primitives
     [] Object selection in scene w/ gizmo control
         [] a gizmo control renders at the location of the selected object
         [] gizmo respond to user clicking and dragging for translation, rotation, and scale
@@ -17,6 +18,7 @@ New Features
         [] when user clicks on the screen we run a compute shader to return the object id of the pixel clicked on
             [] if the user clicked on a valid object id, then we "select" that object in the scene
         [] selected object has a outline effect drawn around it
+    [] Debug draw system
 
 Improvements
     [] Use alloca to allocate on stack for stack arena?
