@@ -19,6 +19,7 @@ New Features
         [] selected object has a outline effect drawn around it
 
 Improvements
+    [] Use alloca to allocate on stack for stack arena?
     [] In post process pass, g_main_draw_result doesn't need to be a storage image (RWTexture2D)
     [] Improve how ui system communicates to rest of engine / game
     [] Maximized window support
@@ -33,7 +34,7 @@ Improvements
     [] Move the expansion of shader filename to full path out of the win32 specific code to somewhere agnostic
 
 Bugs
-    NONE ATM
+    [] Resizing the window leaves a small black gap around the edge of the rendered frame
 
 ----------------------------------------------------------------------------------
 Topics to learn about:
