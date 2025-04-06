@@ -10,7 +10,7 @@ New Features
     [x] Debug labels for vulkan submits
     [x] Debug names for vulkan objects
     [x] Post processs pass w/ compute shader
-    [] Create some type of drawable mesh struct that can work for viking room, gizmo, and basic primitives
+    [x] Create some type of drawable mesh struct that can work for viking room, gizmo, and basic primitives
     [] Object selection in scene w/ gizmo control
         [] a gizmo control renders at the location of the selected object
             [] render pass
@@ -18,6 +18,7 @@ New Features
             [] shaders
             [] pipeline
             [] mesh_instance_render_data buffer
+            [] render in gizmo pass
         [] gizmo respond to user clicking and dragging for translation, rotation, and scale
         [] objects render out an object id to a full screen buffer
         [] when user clicks on the screen we run a compute shader to return the object id of the pixel clicked on
@@ -27,6 +28,8 @@ New Features
 
 Improvements
     [x] Use a ctor/dtor debug label object to auto start/stop debug labels on scope
+    [x] Refactor existing render_frame code to make it easier to annotate with debug information
+    [] Use VK_KHR_dynamic_rendering extension to get rid of render pass and framebuffer objects
     [] Add a small world axis in bottom right to know what orientation my camera is in
     [] Use alloca to allocate on stack for stack arena
     [] In post process pass, g_main_draw_result doesn't need to be a storage image (RWTexture2D)
@@ -38,7 +41,6 @@ Improvements
     [] Copy over needed runtime asset data to the run folder and make the run folder the working directory
     [] Can we use hardware srgb texture format to get rid of manual gamma correction?
     [] Move game module to a dll and load it from engine with hooks for engine to call
-    [] Refactor existing render_frame code to make it easier to annotate with debug information
     [] Refactor upload_buffer_data
         -Right now its setting up a staging buffer and command buffer inside, once we have a better staging buffer strategy we should change this
     [] Move the expansion of shader filename to full path out of the win32 specific code to somewhere agnostic
