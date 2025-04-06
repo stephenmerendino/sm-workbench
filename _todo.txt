@@ -13,6 +13,11 @@ New Features
     [] Create some type of drawable mesh struct that can work for viking room, gizmo, and basic primitives
     [] Object selection in scene w/ gizmo control
         [] a gizmo control renders at the location of the selected object
+            [] render pass
+            [] frame buffer
+            [] shaders
+            [] pipeline
+            [] mesh_instance_render_data buffer
         [] gizmo respond to user clicking and dragging for translation, rotation, and scale
         [] objects render out an object id to a full screen buffer
         [] when user clicks on the screen we run a compute shader to return the object id of the pixel clicked on
@@ -22,6 +27,7 @@ New Features
 
 Improvements
     [x] Use a ctor/dtor debug label object to auto start/stop debug labels on scope
+    [] Add a small world axis in bottom right to know what orientation my camera is in
     [] Use alloca to allocate on stack for stack arena
     [] In post process pass, g_main_draw_result doesn't need to be a storage image (RWTexture2D)
         [] Can I have it bound as both a storage image and a sampled image?
