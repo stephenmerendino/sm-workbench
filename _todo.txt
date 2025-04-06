@@ -31,7 +31,9 @@ Improvements
     [x] Refactor existing render_frame code to make it easier to annotate with debug information
     [] Use VK_KHR_dynamic_rendering extension to get rid of render pass and framebuffer objects
     [] Add a small world axis in bottom right to know what orientation my camera is in
+    [] Use inline way of initializing structs in renderer
     [] Use alloca to allocate on stack for stack arena
+        [] Do a pass on the renderer to see if there are places we can just use a stack arena instead of the startup arena
     [] In post process pass, g_main_draw_result doesn't need to be a storage image (RWTexture2D)
         [] Can I have it bound as both a storage image and a sampled image?
     [] Improve how ui system communicates to rest of engine / game
