@@ -13,8 +13,8 @@ New Features
     [x] Create some type of drawable mesh struct that can work for viking room, gizmo, and basic primitives
     [] Object selection in scene w/ gizmo control
         [] a gizmo control renders at the location of the selected object
-            [] render pass
-            [] frame buffer
+            [x] render pass
+            [x] frame buffer
             [] shaders
             [] pipeline
             [] mesh_instance_render_data buffer
