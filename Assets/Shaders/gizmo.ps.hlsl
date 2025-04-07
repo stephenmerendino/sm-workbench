@@ -1,8 +1,5 @@
 #pragma pack_matrix(row_major)
 
-SamplerState g_linear_sampler_2d : register(s0, space0);
-Texture2D<float4> g_diffuse : register(t0, space2);
-
 struct ps_input_t 
 {
 	[[vk::location(0)]] float2 uv : UV0;
@@ -17,8 +14,7 @@ struct ps_output_t
 ps_output_t main(ps_input_t IN)
 {
     ps_output_t OUT;
-    float4 diffuse_color = g_diffuse.Sample(g_linear_sampler_2d, IN.uv);
-	OUT.color = diffuse_color * float4(IN.color, 1.0f);
+	OUT.color = float4(IN.color, 1.0f);
 	OUT.color.xyz = pow(OUT.color.xyz, 1.0f / 2.2f);
 	return OUT;
 }

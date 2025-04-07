@@ -15,8 +15,8 @@ New Features
         [] a gizmo control renders at the location of the selected object
             [x] render pass
             [x] frame buffer
-            [] shaders
-            [] pipeline
+            [x] shaders
+            [x] pipeline & pipeline layout
             [] mesh_instance_render_data buffer
             [] render in gizmo pass
         [] gizmo respond to user clicking and dragging for translation, rotation, and scale
