@@ -13,7 +13,7 @@ struct ps_output_t
 
 ps_output_t main(ps_input_t IN)
 {
-    ps_output_t OUT;
+	ps_output_t OUT;
 	OUT.color = float4(IN.color, 1.0f);
 	OUT.color.xyz = pow(OUT.color.xyz, 1.0f / 2.2f);
 	return OUT;

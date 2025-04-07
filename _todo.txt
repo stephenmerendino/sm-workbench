@@ -17,8 +17,11 @@ New Features
             [x] frame buffer
             [x] shaders
             [x] pipeline & pipeline layout
-            [] mesh_instance_render_data buffer
-            [] render in gizmo pass
+            [x] mesh_instance_render_data buffer
+            [x] render in gizmo pass
+            [] gizmo looks correct for each mode
+                [] fix transformation from local space to world space for cylinder
+                [] meshes need normal vectors
         [] gizmo respond to user clicking and dragging for translation, rotation, and scale
         [] objects render out an object id to a full screen buffer
         [] when user clicks on the screen we run a compute shader to return the object id of the pixel clicked on
@@ -29,6 +32,7 @@ New Features
 Improvements
     [x] Use a ctor/dtor debug label object to auto start/stop debug labels on scope
     [x] Refactor existing render_frame code to make it easier to annotate with debug information
+    [] adding shapes to mesh allows specification of vertex color
     [] Use VK_KHR_dynamic_rendering extension to get rid of render pass and framebuffer objects
     [] Add a small world axis in bottom right to know what orientation my camera is in
     [] Use inline way of initializing structs in renderer
