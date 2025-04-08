@@ -4,6 +4,7 @@ struct ps_input_t
 {
 	[[vk::location(0)]] float2 uv : UV0;
 	[[vk::location(1)]] float3 color : COLOR0;
+	[[vk::location(2)]] float3 normal : NORMAL0;
 };
 
 struct ps_output_t 
@@ -14,7 +15,8 @@ struct ps_output_t
 ps_output_t main(ps_input_t IN)
 {
 	ps_output_t OUT;
-	OUT.color = float4(IN.color, 1.0f);
+	float3 normalColor = IN.normal * 0.5f + 0.5f;
+	OUT.color = float4(normalColor, 1.0f);
 	OUT.color.xyz = pow(OUT.color.xyz, 1.0f / 2.2f);
 	return OUT;
 }

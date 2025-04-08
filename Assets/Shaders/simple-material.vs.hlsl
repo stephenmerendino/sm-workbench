@@ -5,6 +5,7 @@ struct vs_input_t
 	[[vk::location(0)]] float3 pos : POSITION0;
 	[[vk::location(1)]] float2 uv : UV0;
 	[[vk::location(2)]] float3 color : COLOR0;
+	[[vk::location(3)]] float3 normal : NORMAL0;
 };
 
 struct vs_output_t
