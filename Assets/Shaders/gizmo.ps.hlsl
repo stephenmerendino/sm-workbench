@@ -17,6 +17,5 @@ ps_output_t main(ps_input_t IN)
 	ps_output_t OUT;
 	float3 normalColor = IN.normal * 0.5f + 0.5f;
 	OUT.color = float4(normalColor, 1.0f);
-	OUT.color.xyz = pow(OUT.color.xyz, 1.0f / 2.2f);
 	return OUT;
 }

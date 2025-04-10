@@ -319,23 +319,20 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </ExcludedFromBuild>
     </None>
-    <None Include="..\Assets\Shaders\vertex-color-out.ps.hlsl">
-      <FileType>Document</FileType>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-      </ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-      </ExcludedFromBuild>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Assets\Shaders\gizmo.ps.hlsl">
       <FileType>Document</FileType>
     </None>
     <None Include="..\Assets\Shaders\gizmo.vs.hlsl">
+      <FileType>Document</FileType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Assets\Shaders\vertex-color.ps.hlsl">
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\Assets\Shaders\vertex-color.vs.hlsl">
       <FileType>Document</FileType>
     </None>
   </ItemGroup>

@@ -37,13 +37,16 @@
     <None Include="..\Assets\Shaders\simple-material.vs.hlsl">
       <Filter>shaders</Filter>
     </None>
-    <None Include="..\Assets\Shaders\vertex-color-out.ps.hlsl">
-      <Filter>shaders</Filter>
-    </None>
     <None Include="..\Assets\Shaders\gizmo.ps.hlsl">
       <Filter>shaders</Filter>
     </None>
     <None Include="..\Assets\Shaders\gizmo.vs.hlsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\Assets\Shaders\vertex-color.ps.hlsl">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\Assets\Shaders\vertex-color.vs.hlsl">
       <Filter>shaders</Filter>
     </None>
   </ItemGroup>

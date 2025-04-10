@@ -22,6 +22,5 @@ ps_output_t main(ps_input_t IN)
     ps_output_t OUT;
     float4 diffuse_color = g_diffuse.Sample(g_linear_sampler_2d, IN.uv);
 	OUT.color = diffuse_color * float4(IN.color, 1.0f);
-	OUT.color.xyz = pow(OUT.color.xyz, 1.0f / 2.2f);
 	return OUT;
 }

@@ -21,8 +21,7 @@ ConstantBuffer<frame_render_data_t> g_frame_render_data : register(b0, space1);
 void main(uint3 dispatch_thread_id : SV_DispatchThreadID)
 {
     uint2 xy_pos = dispatch_thread_id.xy;
-	float2 pos_normalized = (float2) xy_pos / (float2) g_post_processing_params.texture_size;
-	float2 pos_normalized_centered = (pos_normalized - float2(0.5f, 0.5f)) * 2.0f;
-	uint2 sample_pos = xy_pos; 
-    g_post_processing_result[xy_pos] = g_main_draw_result[sample_pos] * float4(1.0f, 1.0f, 1.0f, 1.0f);
+	float4 main_draw_color = g_main_draw_result[xy_pos];
+	main_draw_color.xyz = pow(main_draw_color.xyz, 1.0f / 2.0f);
+    g_post_processing_result[xy_pos] = main_draw_color;
 }
