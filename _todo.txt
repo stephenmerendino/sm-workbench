@@ -35,6 +35,7 @@ Improvements
     [x] adding shapes to mesh allows specification of vertex color
     [x] Do gamma correction in post processing pass instead of each main draw shader
     [] Primitive shapes have normals
+    [] mesh_quad_add_3d should accept a center position and normal instead of "right" because thats ambiguous
     [] Use VK_KHR_dynamic_rendering extension to get rid of render pass and framebuffer objects
     [] Add a small world axis in bottom right to know what orientation my camera is in
     [] Use inline way of initializing structs in renderer
