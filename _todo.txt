@@ -33,6 +33,7 @@ Improvements
     [x] Use a ctor/dtor debug label object to auto start/stop debug labels on scope
     [x] Refactor existing render_frame code to make it easier to annotate with debug information
     [x] adding shapes to mesh allows specification of vertex color
+    [x] Do gamma correction in post processing pass instead of each main draw shader
     [] Primitive shapes have normals
     [] Use VK_KHR_dynamic_rendering extension to get rid of render pass and framebuffer objects
     [] Add a small world axis in bottom right to know what orientation my camera is in
