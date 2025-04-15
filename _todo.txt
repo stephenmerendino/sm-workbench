@@ -58,6 +58,7 @@ Improvements
     [] Move the expansion of shader filename to full path out of the win32 specific code to somewhere agnostic
 
 Bugs
+    [] When I use a small enough cylinder radius it breaks normal calculation due to normalization
     [] Resizing the window leaves a small black gap around the edge of the rendered frame
 
 ----------------------------------------------------------------------------------
