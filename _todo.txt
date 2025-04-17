@@ -20,8 +20,11 @@ New Features
             [x] mesh_instance_render_data buffer
             [x] render in gizmo pass
             [] gizmo looks correct for each mode
-                [] fix transformation from local space to world space for cylinder
-                [] meshes need normal vectors
+                [x] fix transformation from local space to world space for cylinder
+                [x] meshes need normal vectors
+                [x] scale tool look finished
+                [] translate tool look finished
+                [] rotate tool look finished
         [] gizmo respond to user clicking and dragging for translation, rotation, and scale
         [] objects render out an object id to a full screen buffer
         [] when user clicks on the screen we run a compute shader to return the object id of the pixel clicked on
