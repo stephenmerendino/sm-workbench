@@ -4,41 +4,15 @@
     <Filter Include="src">
       <UniqueIdentifier>{b8f673a3-c841-44aa-8933-9e4233084f4a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="shaders">
-      <UniqueIdentifier>{74be2e15-653b-4214-a6f0-5ed617fa4c56}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\game">
       <UniqueIdentifier>{6764a1b8-0e73-4844-8a34-dd52a5191982}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\Assets\Shaders\infinite-grid.ps.hlsl">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="..\Assets\Shaders\infinite-grid.vs.hlsl">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="..\Assets\Shaders\post-processing.cs.hlsl">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="..\Assets\Shaders\simple-material.ps.hlsl">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="..\Assets\Shaders\simple-material.vs.hlsl">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="..\Assets\Shaders\gizmo.ps.hlsl">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="..\Assets\Shaders\gizmo.vs.hlsl">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="..\Assets\Shaders\vertex-color.ps.hlsl">
-      <Filter>shaders</Filter>
-    </None>
-    <None Include="..\Assets\Shaders\vertex-color.vs.hlsl">
-      <Filter>shaders</Filter>
-    </None>
+    <Filter Include="raw_assets">
+      <UniqueIdentifier>{0245ee57-9a0e-4179-a645-efca23cde71c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="raw_assets\shaders">
+      <UniqueIdentifier>{c09487f4-dd85-4b22-bb13-5ac12c7aa25a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\_todo.txt" />
