@@ -7,16 +7,9 @@
     <Filter Include="shaders">
       <UniqueIdentifier>{74be2e15-653b-4214-a6f0-5ed617fa4c56}</UniqueIdentifier>
     </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\game.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\game.h">
-      <Filter>src</Filter>
-    </ClInclude>
+    <Filter Include="src\game">
+      <UniqueIdentifier>{6764a1b8-0e73-4844-8a34-dd52a5191982}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Assets\Shaders\infinite-grid.ps.hlsl">
@@ -49,5 +42,15 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\_todo.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\game\game.cpp">
+      <Filter>src\game</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\game\game.h">
+      <Filter>src\game</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

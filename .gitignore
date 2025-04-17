@@ -18,8 +18,10 @@ imgui.ini
 mono_crash.*
 
 # Build results
-Build/
-Run/
+build/
+run/
+_build/
+_run/
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
