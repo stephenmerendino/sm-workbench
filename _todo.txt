@@ -39,7 +39,8 @@ Improvements
     [x] Do gamma correction in post processing pass instead of each main draw shader
     [x] Primitive shapes have normals
     [x] Use VK_KHR_dynamic_rendering extension to get rid of render pass and framebuffer objects
-    [] Update to newer version of imgui and use the vulkan dynamic rendering functionality
+    [x] Update to newer version of imgui and use the vulkan dynamic rendering functionality
+    [x] Copy over needed runtime asset data to the run folder and make the run folder the working directory
     [] Introduce concept of a "transform" to engine that encodes scale, rotate, translate
         [] Maybe move out the rotation stuff from mat44 and put it in transform?
     [] Flesh out concept of a material
@@ -52,7 +53,6 @@ Improvements
     [] Maximized window support
     [] Borderless fullscreen support
     [] Dedicated fullscreen support
-    [] Copy over needed runtime asset data to the run folder and make the run folder the working directory
     [] Can we use hardware srgb texture format to get rid of manual gamma correction?
     [] Move game module to a dll and load it from engine with hooks for engine to call
     [] Refactor upload_buffer_data
@@ -60,7 +60,7 @@ Improvements
     [] Move the expansion of shader filename to full path out of the win32 specific code to somewhere agnostic
 
 Bugs
-    [] When I use a small enough cylinder radius it breaks normal calculation due to normalization
+    [x] When I use a small enough cylinder radius it breaks normal calculation due to normalization
     [] Resizing the window leaves a small black gap around the edge of the rendered frame
 
 ----------------------------------------------------------------------------------
