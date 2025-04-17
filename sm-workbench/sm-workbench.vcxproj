@@ -71,26 +71,26 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IntDir>$(SolutionDir)Build\$(PlatformTarget)_$(Configuration)\$(ProjectName)_Intermediate\</IntDir>
-    <OutDir>$(SolutionDir)Run\$(PlatformTarget)\</OutDir>
+    <IntDir>$(SolutionDir)build\$(PlatformTarget)_$(Configuration)\$(ProjectName)_intermediate\</IntDir>
+    <OutDir>$(SolutionDir)run\$(PlatformTarget)\</OutDir>
     <TargetName>$(ProjectName)_$(PlatformTarget)_$(Configuration)</TargetName>
     <CustomBuildAfterTargets>Build</CustomBuildAfterTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IntDir>$(SolutionDir)Build\$(PlatformTarget)_$(Configuration)\$(ProjectName)_Intermediate\</IntDir>
-    <OutDir>$(SolutionDir)Run\$(PlatformTarget)\</OutDir>
+    <IntDir>$(SolutionDir)build\$(PlatformTarget)_$(Configuration)\$(ProjectName)_intermediate\</IntDir>
+    <OutDir>$(SolutionDir)run\$(PlatformTarget)\</OutDir>
     <TargetName>$(ProjectName)_$(PlatformTarget)_$(Configuration)</TargetName>
     <CustomBuildAfterTargets>Build</CustomBuildAfterTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IntDir>$(SolutionDir)Build\$(PlatformTarget)_$(Configuration)\$(ProjectName)_Intermediate\</IntDir>
-    <OutDir>$(SolutionDir)Run\$(PlatformTarget)\</OutDir>
+    <IntDir>$(SolutionDir)build\$(PlatformTarget)_$(Configuration)\$(ProjectName)_intermediate\</IntDir>
+    <OutDir>$(SolutionDir)run\$(PlatformTarget)\</OutDir>
     <TargetName>$(ProjectName)_$(PlatformTarget)_$(Configuration)</TargetName>
     <CustomBuildAfterTargets>Build</CustomBuildAfterTargets>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IntDir>$(SolutionDir)Build\$(PlatformTarget)_$(Configuration)\$(ProjectName)_Intermediate\</IntDir>
-    <OutDir>$(SolutionDir)Run\$(PlatformTarget)\</OutDir>
+    <IntDir>$(SolutionDir)build\$(PlatformTarget)_$(Configuration)\$(ProjectName)_intermediate\</IntDir>
+    <OutDir>$(SolutionDir)run\$(PlatformTarget)\</OutDir>
     <TargetName>$(ProjectName)_$(PlatformTarget)_$(Configuration)</TargetName>
     <CustomBuildAfterTargets>Build</CustomBuildAfterTargets>
   </PropertyGroup>
@@ -115,8 +115,7 @@
       </Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>mkdir $(SolutionDir)run\$(PlatformTarget)\built_assets\ &amp; xcopy $(ProjectDir)..\raw_assets\ $(SolutionDir)run\$(PlatformTarget)\built_assets\ /E /C /I /Y</Command>
     </PostBuildEvent>
     <CustomBuildStep>
       <Command>
@@ -153,8 +152,7 @@
       </Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>mkdir $(SolutionDir)run\$(PlatformTarget)\built_assets\ &amp; xcopy $(ProjectDir)..\raw_assets\ $(SolutionDir)run\$(PlatformTarget)\built_assets\ /E /C /I /Y</Command>
     </PostBuildEvent>
     <CustomBuildStep>
       <Command>
@@ -187,8 +185,7 @@
       </Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>mkdir $(SolutionDir)run\$(PlatformTarget)\built_assets\ &amp; xcopy $(ProjectDir)..\raw_assets\ $(SolutionDir)run\$(PlatformTarget)\built_assets\ /E /C /I /Y</Command>
     </PostBuildEvent>
     <CustomBuildStep>
       <Command>
@@ -225,8 +222,7 @@
       </Command>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>mkdir $(SolutionDir)run\$(PlatformTarget)\built_assets\ &amp; xcopy $(ProjectDir)..\raw_assets\ $(SolutionDir)run\$(PlatformTarget)\built_assets\ /E /C /I /Y</Command>
     </PostBuildEvent>
     <CustomBuildStep>
       <Command>
