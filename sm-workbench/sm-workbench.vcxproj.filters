@@ -9,15 +9,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\app.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\win32_main.cpp">
+    <ClCompile Include="src\game.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\app.h">
+    <ClInclude Include="src\game.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
