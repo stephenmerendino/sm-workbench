@@ -19,13 +19,16 @@ New Features
             [x] pipeline & pipeline layout
             [x] mesh_instance_render_data buffer
             [x] render in gizmo pass
-            [] gizmo looks correct for each mode
+            [x] gizmo looks correct for each mode
                 [x] fix transformation from local space to world space for cylinder
                 [x] meshes need normal vectors
                 [x] scale tool look finished
-                [] translate tool look finished
-                [] rotate tool look finished
+                [x] translate tool look finished
+                [x] rotate tool look finished
+            [] use push constants to push color for each individual mesh component
         [] gizmo respond to user clicking and dragging for translation, rotation, and scale
+            [] need screen pixel to world ray function
+            [] need ray intersection tests for each thing
         [] objects render out an object id to a full screen buffer
         [] when user clicks on the screen we run a compute shader to return the object id of the pixel clicked on
             [] if the user clicked on a valid object id, then we "select" that object in the scene
