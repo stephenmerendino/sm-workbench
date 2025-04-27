@@ -74,8 +74,7 @@ Topics to learn about:
 ----------------------------------------------------------------------------------
 
 Vulkan
-    -Push constants
-    -Bindless rendering
+    -Bindless rendering (VK_EXT_descriptor_indexing)
     -What is a fragment density map?
     -What is sample shading in multisample state create info?
 
@@ -84,6 +83,8 @@ Rendering
     -DDGI
 
 Concurrency
+    -Threads
+    -Fibers
     -Lockless programming
     -Atomics
     -Mutexes
