@@ -33,8 +33,8 @@ New Features
         [] when user clicks on the screen we run a compute shader to return the object id of the pixel clicked on
             [] if the user clicked on a valid object id, then we "select" that object in the scene
         [] selected object has a outline effect drawn around it
-    [] MeshInstance system
-    [] Material system
+    [-] MeshInstance system
+    [-] Material system
     [] Debug draw system
     [] Resource manager system to manage loaded meshes and materials
 
@@ -47,16 +47,16 @@ Improvements
     [x] Use VK_KHR_dynamic_rendering extension to get rid of render pass and framebuffer objects
     [x] Update to newer version of imgui and use the vulkan dynamic rendering functionality
     [x] Copy over needed runtime asset data to the run folder and make the run folder the working directory
-    [] Introduce concept of a "transform" to engine that encodes scale, rotate, translate
-        [] Maybe move out the rotation stuff from mat44 and put it in transform?
-    [] Flesh out concept of a material
+    [x] Introduce concept of a "transform" to engine that encodes scale, rotate, translate
+        [] Move out the rotation stuff from mat44 and put it in transform?
+    [x] Flesh out concept of a material
     [] Add a small world axis in bottom right to know what orientation my camera is in
     [] Use inline way of initializing structs in renderer
     [] Use alloca to allocate on stack for stack arena
         [] Do a pass on the renderer to see if there are places we can just use a stack arena instead of the startup arena
     [] In post process pass, g_main_draw_result doesn't need to be a storage image (RWTexture2D)
     [] Improve how ui system communicates to rest of engine / game
-    [] Maximized window support
+    [x] Maximized window support
     [] Borderless fullscreen support
     [] Dedicated fullscreen support
     [] Can we use hardware srgb texture format to get rid of manual gamma correction?
