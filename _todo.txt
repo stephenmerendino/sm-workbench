@@ -50,6 +50,10 @@ Improvements
     [x] Introduce concept of a "transform" to engine that encodes scale, rotate, translate
         [] Move out the rotation stuff from mat44 and put it in transform?
     [x] Flesh out concept of a material
+    [] Refactor upload_buffer_data
+        -Right now its setting up a staging buffer and command buffer inside, once we have a better staging buffer strategy we should change this
+    [] Turn infinite grid into a debug draw
+    [] Getting the renderer's next mesh instance id should be threadsafe
     [] Add a small world axis in bottom right to know what orientation my camera is in
     [] Use inline way of initializing structs in renderer
     [] Use alloca to allocate on stack for stack arena
@@ -61,8 +65,6 @@ Improvements
     [] Dedicated fullscreen support
     [] Can we use hardware srgb texture format to get rid of manual gamma correction?
     [] Move game module to a dll and load it from engine with hooks for engine to call
-    [] Refactor upload_buffer_data
-        -Right now its setting up a staging buffer and command buffer inside, once we have a better staging buffer strategy we should change this
     [] Move the expansion of shader filename to full path out of the win32 specific code to somewhere agnostic
 
 Bugs
